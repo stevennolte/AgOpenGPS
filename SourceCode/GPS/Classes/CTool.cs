@@ -1,6 +1,7 @@
 ﻿using OpenTK.Graphics.OpenGL;
 using System;
 using System.Drawing;
+using System.Reflection.Emit;
 
 namespace AgOpenGPS
 {
@@ -56,13 +57,36 @@ namespace AgOpenGPS
 
         public bool isDisplayTramControl;
 
+        #region My Stuff
+        public byte productEnable = 0;
+        public double targetRateGPA = 17;
+        public double targetRateGPM = 0;
+        public double targetRateGPMsum = 0;
+        public double targetRailPressure = 0;
+        public double railPressureRpt = 0;
+        public double railFlowrateRpt = 0;
+        public byte machineConfig = 2; // 1 = Planter, 2=Sprayer
+        public int manualPumpCmd = 0;
+        public byte numofRowModules = 5;
+        public bool isRemoteConnected = false;
+        public int moduleTimeout = 2;
+        public int targetRegPos = 0;
+        public int RegPosRpt = 0;
+        public double targetPumpRPM = 0;
+        public double PumpRPMRpt = 0;
+        #endregion
+
         //Constructor called by FormGPS
+        public CFold foldModule = new CFold();
+        public CProductModule productModule = new CProductModule();
+        public CRowModule[] rowModules;
+        
         public CTool(FormGPS _f)
         {
             mf = _f;
 
             //from settings grab the vehicle specifics
-
+            
             trailingToolToPivotLength = Properties.Settings.Default.setTool_trailingToolToPivotLength;
             width = Properties.Settings.Default.setVehicle_toolWidth;
             overlap = Properties.Settings.Default.setVehicle_toolOverlap;
@@ -120,7 +144,210 @@ namespace AgOpenGPS
             }
 
             isDisplayTramControl = Properties.Settings.Default.setTool_isDisplayTramControl;
+            rowModules = new CRowModule[numofRowModules];
+            for (int i = 0; i < numofRowModules; i++)
+            {
+                rowModules[i] = new CRowModule();
+            }
         }
+
+        #region Liquid
+        public class CFold
+        {
+
+            public String version = "- - -";
+            
+            public byte hydFlowTarget = 0;
+            public byte lhOuterWingRotate = 0;
+            public byte lhWingRotate = 0;
+            public byte lhWingLift = 0;
+            public byte centerLift = 0;
+            public byte rhWingLift = 0;
+            public byte rhWingRotate = 0;
+            public byte rhOuterWingRotate = 0;
+            public byte autoBoomEnable = 0;
+            public bool isJoystickConnected = false;
+            public bool isFoldModuleConnected = false;
+            public DateTime lastFoldMessageTimestamp = DateTime.UtcNow;
+            public DateTime lastJoystickMessageTimestamp = DateTime.UtcNow;
+            public int joystickTimeout = 2;
+            public bool joystickEnabled = false;
+            public byte joystickButton1 = 0;
+            public byte joystickButton2 = 0;
+            public CFold() { }
+
+            
+        }
+
+        public class CRowModule
+        {
+            public bool isModuleConnected = false;
+            public byte ipAddress = 0;
+            public byte udpState = 0;
+            
+            public String version = "- - -";
+            public DateTime lastMessageTimestamp = DateTime.UtcNow;
+            public CRowModule() { }
+            public bool checkStatus()
+            {
+                if ((DateTime.UtcNow - lastMessageTimestamp).TotalSeconds > 2)
+                {
+                    isModuleConnected = false;
+                    return false;
+                }
+                else
+                {
+                    isModuleConnected = true;
+                    return true;
+                }
+            }
+        }
+
+        public class CProductModule
+        {
+            public bool isModuleConnected = false;
+            public byte ipAddress = 0;
+            public byte udpState = 0;
+            public DateTime lastMessageTimestamp = DateTime.UtcNow;
+            public String version = "- - -";
+            
+            public byte railPressureSensorState = 0;
+            public CProductModule() { }
+
+            public bool checkStatus()
+            {
+                if ((DateTime.UtcNow - lastMessageTimestamp).TotalSeconds > 2)
+                {
+                    isModuleConnected = false;
+                    return false;
+                } else
+                {
+                    isModuleConnected = true;
+                    return true;
+                }
+            }
+        }
+        public void toolCmdSetup()
+        {
+            mf.p_151.pgn[mf.p_151.productEnable] = mf.tool.productEnable;
+            
+            //Send Fold Cmds//
+            if (machineConfig == 2)
+            {
+                mf.p_150.pgn[mf.p_150.lhOuterWingRotate] = mf.tool.foldModule.lhOuterWingRotate;
+                mf.p_150.pgn[mf.p_150.lhWingRotate] = mf.tool.foldModule.lhWingRotate;
+                mf.p_150.pgn[mf.p_150.lhWingLift] = mf.tool.foldModule.lhWingLift;
+                mf.p_150.pgn[mf.p_150.rhOuterWingRotate] = mf.tool.foldModule.rhOuterWingRotate;
+                mf.p_150.pgn[mf.p_150.rhWingRotate] = mf.tool.foldModule.rhWingRotate;
+                mf.p_150.pgn[mf.p_150.rhWingLift] = mf.tool.foldModule.rhWingLift;
+                mf.p_150.pgn[mf.p_150.centerLift] = mf.tool.foldModule.centerLift;
+                mf.SendPgnToLoop(mf.p_150.pgn);
+            }
+        }
+        public void calculateToolFlowrate()
+        {
+            targetRateGPM = ((((mf.avgSpeed * 1000) / 60) * mf.tool.width) / 4046.856) * targetRateGPA;
+            mf.p_151.pgn[mf.p_151.totalTargetRateHighByte] = unchecked((byte)((int)(targetRateGPM *100) >> 8));
+            mf.p_151.pgn[mf.p_151.totalTargetRateLowByte] = unchecked((byte)((int)(targetRateGPM * 100)));
+        }
+        public void calculateToolPressure()
+        {
+            if (machineConfig == 2)
+            {
+                targetRailPressure = Math.Pow((targetRateGPM / 48), 2) * 275.51 - (targetRateGPM / 48) * 23.21 + 4.77;
+                if (targetRailPressure < 10)
+                {
+                    targetRailPressure = 10;
+                }
+                mf.p_151.pgn[mf.p_151.totalPressureTargetHighByte] = unchecked((byte)((int)(targetRailPressure * 100) >> 8));
+                mf.p_151.pgn[mf.p_151.totalPressureTargetLowByte] = unchecked((byte)((int)(targetRailPressure * 100)));
+            }
+        }
+        public void calculateRegulatorPosition()
+        {
+            targetRegPos = (int)(targetRailPressure * 100);
+        }
+        public void calculatePumpRPM()
+        {
+            targetPumpRPM = 150;
+        }
+        public void calculateSectionFlowRate()
+        {
+            double pixelSpeedSum = 0;
+            for (int i = 0; i < numOfSections; i++)
+            {
+                pixelSpeedSum += mf.section[i].speedPixels;
+            }
+
+            targetRateGPMsum = 0;
+            for (int i = 0; i < numOfSections; i++)
+            {
+                mf.section[i].sectionSpeed = (mf.section[i].speedPixels / (pixelSpeedSum / numOfSections)) * mf.avgSpeed;
+                mf.section[i].sectionTargetRate = ((((mf.section[i].sectionSpeed * 1000) / 60) * mf.section[i].sectionWidth) / 4046.856) * targetRateGPA;
+                if (mf.section[i].isSectionOn)
+                {
+                    targetRateGPMsum += mf.section[i].sectionTargetRate;
+                }
+                
+            }
+        }
+
+        public void calculateSectionCmd()
+        {
+            if (machineConfig == 2)
+            {
+                mf.p_154.pgn[5] = 1;
+                for (int i = 0; i < mf.tool.numOfSections; i++)
+                {
+                    if (mf.section[i].isSectionOn)
+                    {
+                        mf.p_154.pgn[i * 2 + 7] = 1;
+                        mf.p_154.pgn[i * 2 + 8] = 1;
+                    } else
+                    {
+                        mf.p_154.pgn[i * 2 + 7] = 0;
+                        mf.p_154.pgn[i * 2 + 8] = 0;
+                    }
+                }
+                mf.SendPgnToLoop(mf.p_154.pgn);
+            } 
+            else if (machineConfig == 1)
+            {
+                // Send Duty Cycle Cmds// 
+                mf.p_154.pgn[5] = (byte)(1);
+                for (int i = 0; i < mf.tool.numOfSections; i++)
+                {
+                    if (mf.section[i].isSectionOn)
+                    {
+                        mf.p_154.pgn[i * 2 + 7] = unchecked((byte)((int)(mf.section[i].sectionDutyTarget) >> 8));
+                        mf.p_154.pgn[i * 2 + 8] = unchecked((byte)((int)(mf.section[i].sectionDutyTarget)));
+                    } else
+                    {
+                        mf.p_154.pgn[i * 2 + 7] = 0;
+                        mf.p_154.pgn[i * 2 + 8] = 0;
+                    }
+                }
+                mf.SendPgnToLoop(mf.p_154.pgn);
+                // Send Frequency Cmds //
+                mf.p_154.pgn[5] = (byte)(2);
+                for (int i = 0; i < mf.tool.numOfSections; i++)
+                {
+                    if (mf.section[i].isSectionOn)
+                    {
+                        mf.p_154.pgn[i * 2 + 7] = unchecked((byte)((int)(mf.section[i].sectionDutyTarget) >> 8));
+                        mf.p_154.pgn[i * 2 + 8] = unchecked((byte)((int)(mf.section[i].sectionDutyTarget)));
+                    }
+                    else
+                    {
+                        mf.p_154.pgn[i * 2 + 7] = 0;
+                        mf.p_154.pgn[i * 2 + 8] = 0;
+                    }
+                }
+                mf.SendPgnToLoop(mf.p_154.pgn);
+            }
+        }
+        
+        #endregion
 
         public void DrawTool()
         {

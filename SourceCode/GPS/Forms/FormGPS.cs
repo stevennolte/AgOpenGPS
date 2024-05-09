@@ -1,6 +1,7 @@
 ﻿//Please, if you use this, share the improvements
 
 using AgOpenGPS;
+using AgOpenGPS.Forms;
 using AgOpenGPS.Properties;
 using OpenTK;
 using OpenTK.Graphics.OpenGL;
@@ -253,7 +254,11 @@ namespace AgOpenGPS
         /// </summary>
         public CWindowsSettingsBrightnessController displayBrightness;
 
+
+
         #endregion // Class Props and instances
+
+    
 
         public FormGPS()
         {
@@ -536,8 +541,18 @@ namespace AgOpenGPS
                     }
                 }
             }
+            startDataLogger();
         }
-
+        private void startDataLogger()
+        {
+            Form f = Application.OpenForms["FormDataLog"];
+            if (f != null)
+            {
+                f.Focus();
+                f.Close();
+            }
+            Form form = new FormDataLog(this);
+        }
         private void FormGPS_FormClosing(object sender, FormClosingEventArgs e)
         {
             Form f = Application.OpenForms["FormGPSData"];

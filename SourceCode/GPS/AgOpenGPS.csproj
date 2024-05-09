@@ -73,6 +73,24 @@
   </PropertyGroup>
   <PropertyGroup />
   <PropertyGroup />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>7.1</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>7.1</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>BriansRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="ColorPicker, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -88,6 +106,11 @@
     </Reference>
     <Reference Include="Microsoft.Build.Framework" />
     <Reference Include="Microsoft.Build.Utilities.v4.0" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="OpenTK, Version=1.2.0.0, Culture=neutral, PublicKeyToken=bad199fe84eb3df4, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\References\OpenTK.dll</HintPath>
@@ -96,15 +119,44 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\References\OpenTK.GLControl.dll</HintPath>
     </Reference>
+    <Reference Include="ReaLTaiizor, Version=3.8.0.5, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ReaLTaiizor.3.8.0.5\lib\net48\ReaLTaiizor.dll</HintPath>
+    </Reference>
     <Reference Include="RepeatButtonControl, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\References\RepeatButtonControl.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.4.0\lib\netstandard2.0\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.CodeDom, Version=4.0.1.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.CodeDom.4.5.0\lib\net461\System.CodeDom.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Collections.Immutable, Version=1.2.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Collections.Immutable.1.5.0\lib\netstandard2.0\System.Collections.Immutable.dll</HintPath>
+    </Reference>
     <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Design" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Management" />
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.3\lib\netstandard2.0\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.4.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.3\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Channels, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Channels.4.7.1\lib\net461\System.Threading.Channels.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
     <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
     </Reference>
@@ -134,6 +186,7 @@
     <Compile Include="Classes\CBoundary.cs" />
     <Compile Include="Classes\CGuidance.cs" />
     <Compile Include="Classes\CHeadLine.cs" />
+    <Compile Include="Classes\CPID.cs" />
     <Compile Include="Classes\CRecordedPath.cs" />
     <Compile Include="Classes\CPatches.cs" />
     <Compile Include="Classes\CSettings.cs" />
@@ -180,6 +233,36 @@
     </Compile>
     <Compile Include="Forms\Field\FormBndTool.Designer.cs">
       <DependentUpon>FormBndTool.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormDataLog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormDataLog.Designer.cs">
+      <DependentUpon>FormDataLog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormLiquidPanel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormLiquidPanel.Designer.cs">
+      <DependentUpon>FormLiquidPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormLiquidSelect.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormLiquidSelect.Designer.cs">
+      <DependentUpon>FormLiquidSelect.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormPlanter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormPlanter.Designer.cs">
+      <DependentUpon>FormPlanter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormSprayer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormSprayer.Designer.cs">
+      <DependentUpon>FormSprayer.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\FormRateMap.cs">
       <SubType>Form</SubType>
@@ -631,6 +714,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>gStr.uk.resx</DependentUpon>
     </Compile>
+    <Compile Include="gStr.zh-CHS.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>gStr.zh-CHS.resx</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Forms\UDPComm.Designer.cs">
@@ -649,6 +737,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Field\FormBndTool.resx">
       <DependentUpon>FormBndTool.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormLiquidPanel.resx">
+      <DependentUpon>FormLiquidPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormLiquidSelect.resx">
+      <DependentUpon>FormLiquidSelect.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormPlanter.resx">
+      <DependentUpon>FormPlanter.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormRateMap.resx">
       <DependentUpon>FormRateMap.cs</DependentUpon>
@@ -669,6 +766,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormMap.resx">
       <DependentUpon>FormMap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormSprayer.resx">
+      <DependentUpon>FormSprayer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormYes.resx">
       <DependentUpon>FormYes.cs</DependentUpon>
@@ -890,7 +990,10 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>gStr.uk.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="gStr.zh-CHS.resx" />
+    <EmbeddedResource Include="gStr.zh-CHS.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>gStr.zh-CHS.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
@@ -943,6 +1046,13 @@
     <None Include="btnImages\Config\ConF_SoundSections.png" />
     <None Include="btnImages\Config\ConD_LogElevation.png" />
     <None Include="btnImages\Config\ConT_TramOverrideDisplay.png" />
+    <None Include="Resources\Liquid2.png" />
+    <None Include="Resources\left-arrow.png" />
+    <None Include="Resources\right-arrow.png" />
+    <EmbeddedResource Include="Resources\ModuleActive.png" />
+    <EmbeddedResource Include="Resources\ModuleOff1.png" />
+    <None Include="Resources\joystick_Off.png" />
+    <None Include="Resources\Joystick_Active.png" />
     <Content Include="Resources\TF012.WAV" />
     <None Include="Resources\SectionOn.wav" />
     <None Include="Resources\SectionOff.wav" />

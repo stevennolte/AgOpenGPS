@@ -71,6 +71,13 @@ namespace AgOpenGPS
         //used to determine state of Manual section button - Off Auto On
         public btnStates sectionBtnState = btnStates.Off;
 
+        #region My Stuff
+        public double sectionTargetRate = 0;
+        public double sectionSpeed = 0;
+        public double sectionDutyTarget = 0;
+
+        #endregion
+
         //simple constructor, position is set in GPSWinForm_Load in FormGPS when creating new object
         public CSection()
         {

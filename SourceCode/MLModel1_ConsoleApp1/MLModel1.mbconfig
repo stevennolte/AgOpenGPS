@@ -1,0 +1,365 @@
+﻿{
+  "Scenario": "Regression",
+  "DataSource": {
+    "Type": "TabularFile",
+    "Version": 1,
+    "FilePath": "C:\\Users\\NolteS\\Documents\\dataset.csv",
+    "Delimiter": ",",
+    "DecimalMarker": ".",
+    "HasHeader": true,
+    "ColumnProperties": [
+      {
+        "ColumnName": "Pressure",
+        "ColumnPurpose": "Label",
+        "ColumnDataFormat": "Single",
+        "IsCategorical": false,
+        "Type": "Column",
+        "Version": 4
+      },
+      {
+        "ColumnName": "Flow",
+        "ColumnPurpose": "Feature",
+        "ColumnDataFormat": "Single",
+        "IsCategorical": false,
+        "Type": "Column",
+        "Version": 4
+      }
+    ]
+  },
+  "Environment": {
+    "Type": "LocalCPU",
+    "Version": 1
+  },
+  "RunHistory": {
+    "Version": 3,
+    "Type": "Result",
+    "Trials": [
+      {
+        "Version": 1,
+        "Type": "Trial",
+        "TrainerName": "LbfgsPoissonRegressionRegression",
+        "Score": 2.358561531702875,
+        "RuntimeInSeconds": 0.021,
+        "Parameter": {
+          "_SCHEMA_": "e0 * e1 * e4",
+          "e0": {
+            "OutputColumnNames": [
+              "Flow"
+            ],
+            "InputColumnNames": [
+              "Flow"
+            ]
+          },
+          "e1": {
+            "InputColumnNames": [
+              "Flow"
+            ],
+            "OutputColumnName": "Features"
+          },
+          "e4": {
+            "L1Regularization": 0.115193814,
+            "L2Regularization": 0.03125,
+            "LabelColumnName": "Pressure",
+            "FeatureColumnName": "Features"
+          },
+          "e2": {
+            "NumberOfLeaves": 4,
+            "MinimumExampleCountPerLeaf": 20,
+            "NumberOfTrees": 4,
+            "MaximumBinCountPerFeature": 255,
+            "FeatureFraction": 1.0,
+            "LearningRate": 0.099999999999999978,
+            "LabelColumnName": "Pressure",
+            "FeatureColumnName": "Features"
+          },
+          "e3": {
+            "NumberOfLeaves": 4,
+            "MinimumExampleCountPerLeaf": 20,
+            "LearningRate": 1.0,
+            "NumberOfTrees": 4,
+            "SubsampleFraction": 1.0,
+            "MaximumBinCountPerFeature": 255,
+            "FeatureFraction": 1.0,
+            "L1Regularization": 2E-10,
+            "L2Regularization": 1.0,
+            "LabelColumnName": "Pressure",
+            "FeatureColumnName": "Features"
+          },
+          "e5": {
+            "L1Regularization": 1.0,
+            "L2Regularization": 0.1,
+            "LabelColumnName": "Pressure",
+            "FeatureColumnName": "Features"
+          }
+        }
+      },
+      {
+        "Version": 1,
+        "Type": "Trial",
+        "TrainerName": "LbfgsPoissonRegressionRegression",
+        "Score": 2.360314216960651,
+        "RuntimeInSeconds": 0.034,
+        "Parameter": {
+          "_SCHEMA_": "e0 * e1 * e4",
+          "e0": {
+            "OutputColumnNames": [
+              "Flow"
+            ],
+            "InputColumnNames": [
+              "Flow"
+            ]
+          },
+          "e1": {
+            "InputColumnNames": [
+              "Flow"
+            ],
+            "OutputColumnName": "Features"
+          },
+          "e4": {
+            "L1Regularization": 0.03125,
+            "L2Regularization": 0.0499253273,
+            "LabelColumnName": "Pressure",
+            "FeatureColumnName": "Features"
+          },
+          "e2": {
+            "NumberOfLeaves": 4,
+            "MinimumExampleCountPerLeaf": 20,
+            "NumberOfTrees": 4,
+            "MaximumBinCountPerFeature": 255,
+            "FeatureFraction": 1.0,
+            "LearningRate": 0.099999999999999978,
+            "LabelColumnName": "Pressure",
+            "FeatureColumnName": "Features"
+          },
+          "e3": {
+            "NumberOfLeaves": 4,
+            "MinimumExampleCountPerLeaf": 20,
+            "LearningRate": 1.0,
+            "NumberOfTrees": 4,
+            "SubsampleFraction": 1.0,
+            "MaximumBinCountPerFeature": 255,
+            "FeatureFraction": 1.0,
+            "L1Regularization": 2E-10,
+            "L2Regularization": 1.0,
+            "LabelColumnName": "Pressure",
+            "FeatureColumnName": "Features"
+          },
+          "e5": {
+            "L1Regularization": 1.0,
+            "L2Regularization": 0.1,
+            "LabelColumnName": "Pressure",
+            "FeatureColumnName": "Features"
+          }
+        }
+      },
+      {
+        "Version": 1,
+        "Type": "Trial",
+        "TrainerName": "LbfgsPoissonRegressionRegression",
+        "Score": 2.3763496217798123,
+        "RuntimeInSeconds": 0.03,
+        "Parameter": {
+          "_SCHEMA_": "e0 * e1 * e4",
+          "e0": {
+            "OutputColumnNames": [
+              "Flow"
+            ],
+            "InputColumnNames": [
+              "Flow"
+            ]
+          },
+          "e1": {
+            "InputColumnNames": [
+              "Flow"
+            ],
+            "OutputColumnName": "Features"
+          },
+          "e4": {
+            "L1Regularization": 0.0514263362,
+            "L2Regularization": 0.03125,
+            "LabelColumnName": "Pressure",
+            "FeatureColumnName": "Features"
+          },
+          "e2": {
+            "NumberOfLeaves": 4,
+            "MinimumExampleCountPerLeaf": 20,
+            "NumberOfTrees": 4,
+            "MaximumBinCountPerFeature": 255,
+            "FeatureFraction": 1.0,
+            "LearningRate": 0.099999999999999978,
+            "LabelColumnName": "Pressure",
+            "FeatureColumnName": "Features"
+          },
+          "e3": {
+            "NumberOfLeaves": 4,
+            "MinimumExampleCountPerLeaf": 20,
+            "LearningRate": 1.0,
+            "NumberOfTrees": 4,
+            "SubsampleFraction": 1.0,
+            "MaximumBinCountPerFeature": 255,
+            "FeatureFraction": 1.0,
+            "L1Regularization": 2E-10,
+            "L2Regularization": 1.0,
+            "LabelColumnName": "Pressure",
+            "FeatureColumnName": "Features"
+          },
+          "e5": {
+            "L1Regularization": 1.0,
+            "L2Regularization": 0.1,
+            "LabelColumnName": "Pressure",
+            "FeatureColumnName": "Features"
+          }
+        }
+      },
+      {
+        "Version": 1,
+        "Type": "Trial",
+        "TrainerName": "LbfgsPoissonRegressionRegression",
+        "Score": 2.38319673226656,
+        "RuntimeInSeconds": 0.028,
+        "Parameter": {
+          "_SCHEMA_": "e0 * e1 * e4",
+          "e0": {
+            "OutputColumnNames": [
+              "Flow"
+            ],
+            "InputColumnNames": [
+              "Flow"
+            ]
+          },
+          "e1": {
+            "InputColumnNames": [
+              "Flow"
+            ],
+            "OutputColumnName": "Features"
+          },
+          "e4": {
+            "L1Regularization": 0.03125,
+            "L2Regularization": 0.03125,
+            "LabelColumnName": "Pressure",
+            "FeatureColumnName": "Features"
+          },
+          "e2": {
+            "NumberOfLeaves": 4,
+            "MinimumExampleCountPerLeaf": 20,
+            "NumberOfTrees": 4,
+            "MaximumBinCountPerFeature": 255,
+            "FeatureFraction": 1.0,
+            "LearningRate": 0.099999999999999978,
+            "LabelColumnName": "Pressure",
+            "FeatureColumnName": "Features"
+          },
+          "e3": {
+            "NumberOfLeaves": 4,
+            "MinimumExampleCountPerLeaf": 20,
+            "LearningRate": 1.0,
+            "NumberOfTrees": 4,
+            "SubsampleFraction": 1.0,
+            "MaximumBinCountPerFeature": 255,
+            "FeatureFraction": 1.0,
+            "L1Regularization": 2E-10,
+            "L2Regularization": 1.0,
+            "LabelColumnName": "Pressure",
+            "FeatureColumnName": "Features"
+          },
+          "e5": {
+            "L1Regularization": 1.0,
+            "L2Regularization": 0.1,
+            "LabelColumnName": "Pressure",
+            "FeatureColumnName": "Features"
+          }
+        }
+      },
+      {
+        "Version": 1,
+        "Type": "Trial",
+        "TrainerName": "LbfgsPoissonRegressionRegression",
+        "Score": 2.38319673226656,
+        "RuntimeInSeconds": 0.02,
+        "Parameter": {
+          "_SCHEMA_": "e0 * e1 * e4",
+          "e0": {
+            "OutputColumnNames": [
+              "Flow"
+            ],
+            "InputColumnNames": [
+              "Flow"
+            ]
+          },
+          "e1": {
+            "InputColumnNames": [
+              "Flow"
+            ],
+            "OutputColumnName": "Features"
+          },
+          "e4": {
+            "L1Regularization": 0.03125,
+            "L2Regularization": 0.03125,
+            "LabelColumnName": "Pressure",
+            "FeatureColumnName": "Features"
+          },
+          "e2": {
+            "NumberOfLeaves": 4,
+            "MinimumExampleCountPerLeaf": 20,
+            "NumberOfTrees": 4,
+            "MaximumBinCountPerFeature": 255,
+            "FeatureFraction": 1.0,
+            "LearningRate": 0.099999999999999978,
+            "LabelColumnName": "Pressure",
+            "FeatureColumnName": "Features"
+          },
+          "e3": {
+            "NumberOfLeaves": 4,
+            "MinimumExampleCountPerLeaf": 20,
+            "LearningRate": 1.0,
+            "NumberOfTrees": 4,
+            "SubsampleFraction": 1.0,
+            "MaximumBinCountPerFeature": 255,
+            "FeatureFraction": 1.0,
+            "L1Regularization": 2E-10,
+            "L2Regularization": 1.0,
+            "LabelColumnName": "Pressure",
+            "FeatureColumnName": "Features"
+          },
+          "e5": {
+            "L1Regularization": 1.0,
+            "L2Regularization": 0.1,
+            "LabelColumnName": "Pressure",
+            "FeatureColumnName": "Features"
+          }
+        }
+      }
+    ],
+    "Estimators": {
+      "e0": "ReplaceMissingValues",
+      "e1": "Concatenate",
+      "e2": "FastTreeRegression",
+      "e3": "LightGbmRegression",
+      "e4": "LbfgsPoissonRegressionRegression",
+      "e5": "SdcaRegression"
+    },
+    "Schema": "e0 * e1 * (e2 + e3 + e4 + e5)",
+    "MetricName": "RootMeanSquaredError",
+    "ModelFilePath": "C:\\Users\\NolteS\\source\\repos\\AgOpenGPS\\SourceCode\\GPS\\MLModel1.mlnet"
+  },
+  "Type": "TrainingConfig",
+  "Version": 4,
+  "TrainingOption": {
+    "Version": 1,
+    "Type": "RegressionTrainingOption",
+    "TrainingTime": 20,
+    "OptimizeMetric": "RMSE",
+    "LabelColumn": "Pressure",
+    "AvailableTrainers": [
+      "SDCA",
+      "LBFGS",
+      "LGBM",
+      "FASTTREE"
+    ],
+    "ValidationOption": {
+      "Version": 0,
+      "Type": "CrossValidationValidationOption",
+      "NumberOfFolds": 5
+    }
+  }
+}

@@ -22,7 +22,7 @@ namespace AgOpenGPS
 
         // Status delegate
         public int udpWatchCounts = 0;
-        public int udpWatchLimit = 70;
+        public int udpWatchLimit = 200;
 
         private readonly Stopwatch udpWatch = new Stopwatch();
 
@@ -30,25 +30,26 @@ namespace AgOpenGPS
         {
             if (data.Length > 4 && data[0] == 0x80 && data[1] == 0x81)
             {
-                int Length = Math.Max((data[4]) + 5, 5);
-                if (data.Length > Length)
-                {
-                    byte CK_A = 0;
-                    for (int j = 2; j < Length; j++)
-                    {
-                        CK_A += data[j];
-                    }
+                #region Checksum
+                //int Length = Math.Max((data[4]) + 5, 5);
+                //if (data.Length > Length)
+                //{
+                //    byte CK_A = 0;
+                //    for (int j = 2; j < Length; j++)
+                //    {
+                //        CK_A += data[j];
+                //    }
 
-                    if (data[Length] != (byte)CK_A)
-                    {
-                        return;
-                    }
-                }
-                else
-                {
-                    return;
-                }
-
+                //    if (data[Length] != (byte)CK_A)
+                //    {
+                //        return;
+                //    }
+                //}
+                //else
+                //{
+                //    return;
+                //}
+                #endregion
                 switch (data[3])
                 {
                     case 0xD6:
@@ -269,7 +270,121 @@ namespace AgOpenGPS
 
                             break;
                         }
-                     #endregion
+                    #endregion
+
+                    #region My Stuff
+                    ///// Central Reports
+                    case 0x98:
+                        tool.railPressureRpt = (double)((data[16] * 256 + data[15]) / 100.0);
+                        tool.railFlowrateRpt = (double)(data[18] * 256 + data[17]);
+                        break;
+                    case 162:
+                        tool.foldModule.isJoystickConnected = true;
+                        tool.foldModule.lastJoystickMessageTimestamp = DateTime.UtcNow;
+                        if (tool.foldModule.joystickEnabled)
+                        {
+                            if (data[5] == 1 && data[12] == 0)
+                            {
+                                tool.foldModule.rhWingLift = 1;
+                            } 
+                            else if (data[5] == 0 && data[12] == 1)
+                            {
+                                tool.foldModule.rhWingLift = 2;
+                            } else if (data[5] == 0 && data[12] == 0)
+                            {
+                                tool.foldModule.rhWingLift = 0;
+                            }
+
+                            if (data[10] == 0 && data[11] == 0)
+                            {
+                                tool.foldModule.lhWingLift = 0;
+                            } else if (data[10] == 1 && data[11] == 0) 
+                            {
+                                tool.foldModule.lhWingLift = 1; 
+                            } else if (data[10] == 0 && data[11] == 1)
+                            {
+                                tool.foldModule.lhWingLift = 2;
+                            }
+
+                            if (data[8] == 0 && data[9] == 0)
+                            {
+                                tool.foldModule.centerLift = 0;
+                            } else if (data[8] == 1 && data[9] == 0)
+                            {
+                                tool.foldModule.centerLift = 1;
+                            } else if (data[8] == 0 && data[9] == 1)
+                            {
+                                tool.foldModule.centerLift = 2;
+                            }
+
+                            if (data[6] == 1 && tool.foldModule.joystickButton1 != data[6])
+                            {
+                                btnSectionMasterAuto.PerformClick();
+                            }
+                            tool.foldModule.joystickButton1 = data[6];
+
+                            if (data[7] == 1 && tool.foldModule.joystickButton2 != data[6])
+                            {
+                                btnAutoSteer.PerformClick();
+                            }
+                        }
+                        break;
+                    case 0x9B:
+                        {
+                            
+                            if (data[2] > 40 && data[2] < 50)
+                            {
+
+                                tool.rowModules[(data[2] - 41)].lastMessageTimestamp = DateTime.UtcNow;
+
+                                tool.rowModules[(data[2] - 41)].ipAddress = data[2];
+                                tool.rowModules[(data[2] - 41)].version = Convert.ToString(data[6]) + "." + Convert.ToString(data[7]) + "." + Convert.ToString(data[8]);
+                                //sprayer.rowModule[(data[2] - 41)].udpState = data[9];
+
+                            }
+                            else if (data[2] == 51)
+                            {
+                                
+                                tool.productModule.lastMessageTimestamp = DateTime.UtcNow;
+                                tool.productModule.railPressureSensorState = data[10];
+                                tool.productModule.version = Convert.ToString(data[6]) + "." + Convert.ToString(data[7]) + "." + Convert.ToString(data[8]);
+                                tool.productModule.udpState = data[9];
+                                tool.productModule.ipAddress = data[2];
+                                //sprayer.productModule.railPressureSensorState = data[10];
+                            }
+                            else if (data[2] == 52 && data[5] == 2)
+                            {
+                                tool.foldModule.lastFoldMessageTimestamp = DateTime.UtcNow;
+                                tool.foldModule.version = Convert.ToString(data[6]) + "." + Convert.ToString(data[7]) + "." + Convert.ToString(data[8]);
+                                    
+                                //sprayer.foldModule.versionNum3 = data[8];
+                                //sprayer.foldModule.udpState = data[9];
+                            }
+                            
+                            //else if (data[5] == 1)
+                            //{
+                            //    if (data[2] > 40 && data[2] < 50)
+                            //    {
+                            //        planter.rowModule[(data[2] - 41)].lastMessageTimestamp = (int)(Math.Round((DateTime.UtcNow - new DateTime(1970, 1, 1)).TotalSeconds));
+                            //        planter.rowModule[(data[2] - 41)].ipAddress = data[2];
+                            //        planter.rowModule[(data[2] - 41)].versionNum1 = data[6];
+                            //        planter.rowModule[(data[2] - 41)].versionNum2 = data[7];
+                            //        planter.rowModule[(data[2] - 41)].versionNum3 = data[8];
+                            //        planter.rowModule[(data[2] - 41)].udpState = data[9];
+                            //    }
+                            //    else if (data[2] == 51)
+                            //    {
+                            //        planter.productModule.lastMessageTimestamp = (int)(Math.Round((DateTime.UtcNow - new DateTime(1970, 1, 1)).TotalSeconds));
+                            //        planter.productModule.ipAddress = data[2];
+                            //        planter.productModule.versionNum1 = data[6];
+                            //        planter.productModule.versionNum2 = data[7];
+                            //        planter.productModule.versionNum3 = data[8];
+                            //        planter.productModule.regState = data[15];
+                            //    }
+                            //}
+                        }
+                        break;
+                        #endregion
                 }
             }
         }

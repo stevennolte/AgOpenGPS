@@ -67,6 +67,7 @@ namespace AgOpenGPS
 
         public bool isFlashOnOff = false, isPanFormVisible = false;
         public bool isPanelBottomHidden = false;
+        public bool isProductPanelHidden = true;
 
         public int makeUTurnCounter = 0;
 
@@ -930,6 +931,14 @@ namespace AgOpenGPS
                 oglMain.Left = 80;
                 oglMain.Width = this.Width - statusStripLeft.Width - 22; //22
                 oglMain.Height = this.Height - 60;
+                if (!isProductPanelHidden)
+                {
+                    oglMain.Height = this.Height - 260;
+                    oglMain.Top = this.Top + 260;
+                } else
+                {
+                    oglMain.Top = 63;
+                }
             }
             else
             {
@@ -949,6 +958,14 @@ namespace AgOpenGPS
                     oglMain.Left = 80;
                     oglMain.Width = this.Width - statusStripLeft.Width - 92; //22
                     oglMain.Height = this.Height - 118;
+                    if (!isProductPanelHidden)
+                    {
+                        oglMain.Height = oglMain.Height - 200;
+                        oglMain.Top = this.Top + 260;
+                    } else
+                    {
+                        oglMain.Top = 63;
+                    }
                 }
             }
 

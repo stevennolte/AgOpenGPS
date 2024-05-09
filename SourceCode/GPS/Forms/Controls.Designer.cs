@@ -443,6 +443,7 @@ namespace AgOpenGPS
                 f.Close();
             }
 
+
             f = null;
             f = Application.OpenForms["FormFieldData"];
 
@@ -462,11 +463,11 @@ namespace AgOpenGPS
                 f.Close();
             }
 
-            if (this.OwnedForms.Any())
-            {
-                TimedMessageBox(2000, gStr.gsWindowsStillOpen, gStr.gsCloseAllWindowsFirst);
-                return;
-            }
+            //if (this.OwnedForms.Any())
+            //{
+            //    TimedMessageBox(2000, gStr.gsWindowsStillOpen, gStr.gsCloseAllWindowsFirst);
+            //    return;
+            //}
 
             using (var form = new FormJob(this))
             {
@@ -957,6 +958,41 @@ namespace AgOpenGPS
             {
                 form.ShowDialog(this);
             }
+        }
+
+        #endregion
+
+        #region My Stuff
+        private void btnLiquid_Click(object sender, EventArgs e)
+        {
+            Form f = Application.OpenForms["FormPlanter"];
+            if (f != null)
+            {
+                f.Focus();
+                if (f.Visible)
+                {
+                    f.Hide();
+                    isProductPanelHidden = true;
+                    PanelsAndOGLSize();
+                } else
+                {
+                    f.Visible = true;
+                    isProductPanelHidden=false;
+                    PanelsAndOGLSize();
+                }
+                return;
+            }
+
+            isProductPanelHidden = false;
+            PanelsAndOGLSize();
+            Form form = new FormPlanter(this);
+            form.Location = new Point(oglMain.Left, 65);
+            form.Width = oglMain.Width;
+            form.Height = 200;
+            form.TopLevel = false; 
+            this.Controls.Add(form);
+            form.BringToFront();
+            form.Show();
         }
 
         #endregion

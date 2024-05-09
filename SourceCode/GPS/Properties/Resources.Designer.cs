@@ -2170,6 +2170,26 @@ namespace AgOpenGPS.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Joystick_Active {
+            get {
+                object obj = ResourceManager.GetObject("Joystick_Active", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap joystick_Off {
+            get {
+                object obj = ResourceManager.GetObject("joystick_Off", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Kubota {
             get {
                 object obj = ResourceManager.GetObject("Kubota", resourceCulture);
@@ -2190,6 +2210,16 @@ namespace AgOpenGPS.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap left_arrow {
+            get {
+                object obj = ResourceManager.GetObject("left-arrow", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap LetterABlue {
             get {
                 object obj = ResourceManager.GetObject("LetterABlue", resourceCulture);
@@ -2203,6 +2233,16 @@ namespace AgOpenGPS.Properties {
         internal static System.Drawing.Bitmap LetterBBlue {
             get {
                 object obj = ResourceManager.GetObject("LetterBBlue", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Liquid2 {
+            get {
+                object obj = ResourceManager.GetObject("Liquid2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -2303,6 +2343,26 @@ namespace AgOpenGPS.Properties {
         internal static System.Drawing.Bitmap ModeStanley {
             get {
                 object obj = ResourceManager.GetObject("ModeStanley", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ModuleActive {
+            get {
+                object obj = ResourceManager.GetObject("ModuleActive", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ModuleOff1 {
+            get {
+                object obj = ResourceManager.GetObject("ModuleOff1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -2523,6 +2583,16 @@ namespace AgOpenGPS.Properties {
         internal static System.Drawing.Bitmap ResetTool {
             get {
                 object obj = ResourceManager.GetObject("ResetTool", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap right_arrow {
+            get {
+                object obj = ResourceManager.GetObject("right-arrow", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

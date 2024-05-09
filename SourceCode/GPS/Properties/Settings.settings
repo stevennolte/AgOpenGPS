@@ -731,5 +731,8 @@
     <Setting Name="setAS_uTurnCompensation" Type="System.Double" Scope="User">
       <Value Profile="(Default)">1</Value>
     </Setting>
+	<Setting Name="targetRate" Type="System.Double" Scope="User">
+	  <Value Profile="(Default)">6</Value>
+	</Setting>
   </Settings>
 </SettingsFile>

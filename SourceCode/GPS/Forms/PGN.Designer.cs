@@ -32,6 +32,92 @@ namespace AgOpenGPS
             }
         }
 
+        #region My Stuff
+        // Sprayer Fold Commands //
+        public class CPGN_96
+        {
+            public byte[] pgn = new byte[] { 0x80, 0x81, 0x7f, 0x96, 24,
+                                        0, 0, 0, 0, 0, 0, 0, 0,
+                                        0, 0, 0, 0, 0, 0, 0, 0,
+                                        0, 0, 0, 0, 0, 0, 0, 0, 0xCC };
+
+            public int hydFlowTarget = 5;
+            public int lhOuterWingRotate = 6;
+            public int lhWingRotate = 7;
+            public int lhWingLift = 8;
+            public int centerLift = 9;
+            public int rhWingLift = 10;
+            public int rhWingRotate = 11;
+            public int rhOuterWingRotate = 12;
+            public int autoBoomEnable = 13;
+
+        }
+        public CPGN_96 p_150 = new CPGN_96();
+
+        // Central Controller Commands //
+        public class CPGN_97
+        {
+            public byte[] pgn = new byte[] { 0x80, 0x81, 0x7f, 0x97, 26,
+                                        0, 0, 0, 0, 0, 0, 0, 0,
+                                        0, 0, 0, 0, 0, 0, 0, 0,
+                                        0, 0, 0, 0, 0, 0, 0, 0,
+                                        0, 0, 0, 0, 0, 0, 0, 0,
+                                        0, 0, 0, 0, 0, 0, 0, 0,
+                                        0, 0, 0, 0, 0, 0, 0, 0,
+                                        0xCC };
+            public int productEnable = 5;
+            public int numOfsections = 6;
+            public int rowSpacingLowByte = 7;
+            public int rowSpacingHighByte = 8;
+            public int centralSpeedLowByte = 9;
+            public int centralSpeedHighByte = 10;
+            public int totalTargetFlowrateLowByte = 11;
+            public int totalTargetFlowrateHighByte = 12;
+            public int totalTargetRateLowByte = 13;
+            public int totalTargetRateHighByte = 14;
+            public int totalPressureTargetLowByte = 15;
+            public int totalPressureTargetHighByte = 16;
+            public int regulatorPositionTargetLowByte = 17;
+            public int regulatorPositionTargetHighByte = 18;
+            public int pumpRPMTargetLowByte = 19;
+            public int pumpRPMTargetHighByte = 20;
+            public int manualPumpCmdLowByte = 21;
+            public int manualPumpCmdHighByte = 22;
+            public int agitateControl = 23;
+        }
+        public CPGN_97 p_151 = new CPGN_97();
+        
+        // Module Reboot //
+        public class CPGN_9D
+        {
+            public byte[] pgn = new byte[] { 0x80, 0x81, 0x7f, 0x9D, 8,
+                                       0, 1, 0, 0, 0, 0, 0, 0, 0xCC };
+            public int ipAddressReboot = 5;
+        }
+        public CPGN_9D p_157 = new CPGN_9D();
+
+        // Row Commands //
+        public class CPGN_9A
+        {
+            public byte[] pgn = new byte[] { 0x80, 0x81, 0x7f, 0x9A, 24,
+                                        0, 0, 0, 0, 0, 0, 0, 0,
+                                        0, 0, 0, 0, 0, 0, 0, 0,
+                                        0, 0, 0, 0, 0, 0, 0, 0,
+                                        0, 0, 0, 0, 0, 0, 0, 0,
+                                        0, 0, 0, 0, 0, 0, 0, 0,
+                                        0, 0, 0, 0, 0, 0, 0, 0,
+                                        0, 0, 0, 0, 0, 0, 0, 0,
+                                        0, 0, 0, 0, 0, 0, 0, 0,
+                                        0, 0, 0, 0, 0, 0, 0, 0,
+                                        0, 0, 0, 0, 0, 0, 0, 0,
+                                        0, 0, 0, 0, 0, 0, 0, 0,
+                                        0, 0, 0, 0, 0, 0, 0, 0, 0xCC };
+
+        }
+        public CPGN_9A p_154 = new CPGN_9A();
+        #endregion
+
+
         //AutoSteerData
         public class CPGN_FE
         {
