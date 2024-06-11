@@ -92,6 +92,9 @@
     <CodeAnalysisRuleSet>BriansRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Apache.Arrow, Version=11.0.0.0, Culture=neutral, PublicKeyToken=204f54e5a45c07df, processorArchitecture=MSIL">
+      <HintPath>..\packages\Apache.Arrow.11.0.0\lib\netstandard2.0\Apache.Arrow.dll</HintPath>
+    </Reference>
     <Reference Include="ColorPicker, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\References\ColorPicker.dll</HintPath>
@@ -100,13 +103,28 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\References\Control.Draggable.dll</HintPath>
     </Reference>
+    <Reference Include="IronCompress, Version=1.0.0.0, Culture=neutral, PublicKeyToken=d380b3dee6d01926, processorArchitecture=MSIL">
+      <HintPath>..\packages\IronCompress.1.5.1\lib\netstandard2.0\IronCompress.dll</HintPath>
+    </Reference>
     <Reference Include="Keypad, Version=5.2.3.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\References\Keypad.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.8.0.0\lib\net462\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Build.Framework" />
     <Reference Include="Microsoft.Build.Utilities.v4.0" />
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Data.Analysis, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Data.Analysis.0.21.0\lib\netstandard2.0\Microsoft.Data.Analysis.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IO.RecyclableMemoryStream, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IO.RecyclableMemoryStream.3.0.0\lib\netstandard2.0\Microsoft.IO.RecyclableMemoryStream.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ML.DataView, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ML.DataView.3.0.0\lib\netstandard2.0\Microsoft.ML.DataView.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
@@ -119,6 +137,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\References\OpenTK.GLControl.dll</HintPath>
     </Reference>
+    <Reference Include="Parquet, Version=4.0.0.0, Culture=neutral, PublicKeyToken=d380b3dee6d01926, processorArchitecture=MSIL">
+      <HintPath>..\packages\Parquet.Net.4.23.5\lib\netstandard2.0\Parquet.dll</HintPath>
+    </Reference>
     <Reference Include="ReaLTaiizor, Version=3.8.0.5, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\ReaLTaiizor.3.8.0.5\lib\net48\ReaLTaiizor.dll</HintPath>
     </Reference>
@@ -126,9 +147,12 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\References\RepeatButtonControl.dll</HintPath>
     </Reference>
+    <Reference Include="Snappier, Version=1.1.1.0, Culture=neutral, PublicKeyToken=a1b25124e6e13a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Snappier.1.1.1\lib\netstandard2.0\Snappier.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
-    <Reference Include="System.Buffers, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Buffers.4.4.0\lib\netstandard2.0\System.Buffers.dll</HintPath>
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
     </Reference>
     <Reference Include="System.CodeDom, Version=4.0.1.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.CodeDom.4.5.0\lib\net461\System.CodeDom.dll</HintPath>
@@ -141,15 +165,21 @@
     <Reference Include="System.Design" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Management" />
-    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Memory.4.5.3\lib\netstandard2.0\System.Memory.dll</HintPath>
+    <Reference Include="System.Memory, Version=4.0.1.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.5\lib\net461\System.Memory.dll</HintPath>
     </Reference>
     <Reference Include="System.Numerics" />
-    <Reference Include="System.Numerics.Vectors, Version=4.1.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Numerics.Vectors.4.4.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
     </Reference>
-    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.3\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Encodings.Web, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Encodings.Web.8.0.0\lib\net462\System.Text.Encodings.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Json.8.0.0\lib\net462\System.Text.Json.dll</HintPath>
     </Reference>
     <Reference Include="System.Threading.Channels, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Threading.Channels.4.7.1\lib\net461\System.Threading.Channels.dll</HintPath>
@@ -170,6 +200,9 @@
     <Reference Include="WebEye.Controls.WinForms.WebCameraControl, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\References\WebEye.Controls.WinForms.WebCameraControl.dll</HintPath>
+    </Reference>
+    <Reference Include="ZstdSharp, Version=0.7.2.0, Culture=neutral, PublicKeyToken=8d151af33a4ad5cf, processorArchitecture=MSIL">
+      <HintPath>..\packages\ZstdSharp.Port.0.7.2\lib\net461\ZstdSharp.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -233,6 +266,12 @@
     </Compile>
     <Compile Include="Forms\Field\FormBndTool.Designer.cs">
       <DependentUpon>FormBndTool.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormRemoteSettings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormRemoteSettings.Designer.cs">
+      <DependentUpon>FormRemoteSettings.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\FormDataLog.cs">
       <SubType>Form</SubType>
@@ -767,6 +806,9 @@
     <EmbeddedResource Include="Forms\FormMap.resx">
       <DependentUpon>FormMap.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormRemoteSettings.resx">
+      <DependentUpon>FormRemoteSettings.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormSprayer.resx">
       <DependentUpon>FormSprayer.cs</DependentUpon>
     </EmbeddedResource>
@@ -1003,6 +1045,7 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\AgOpenGPS.Forms.FormPlanter.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -1053,6 +1096,7 @@
     <EmbeddedResource Include="Resources\ModuleOff1.png" />
     <None Include="Resources\joystick_Off.png" />
     <None Include="Resources\Joystick_Active.png" />
+    <None Include="Resources\Reboot.png" />
     <Content Include="Resources\TF012.WAV" />
     <None Include="Resources\SectionOn.wav" />
     <None Include="Resources\SectionOff.wav" />

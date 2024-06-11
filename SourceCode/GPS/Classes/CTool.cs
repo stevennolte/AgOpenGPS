@@ -65,7 +65,7 @@ namespace AgOpenGPS
         public double targetRailPressure = 0;
         public double railPressureRpt = 0;
         public double railFlowrateRpt = 0;
-        public byte machineConfig = 2; // 1 = Planter, 2=Sprayer
+        public byte machineConfig = 1; // 1 = Planter, 2=Sprayer
         public int manualPumpCmd = 0;
         public byte numofRowModules = 5;
         public bool isRemoteConnected = false;
@@ -210,6 +210,7 @@ namespace AgOpenGPS
             public byte udpState = 0;
             public DateTime lastMessageTimestamp = DateTime.UtcNow;
             public String version = "- - -";
+            public double flowrateRpt = 0;
             
             public byte railPressureSensorState = 0;
             public CProductModule() { }
@@ -262,14 +263,29 @@ namespace AgOpenGPS
                 mf.p_151.pgn[mf.p_151.totalPressureTargetHighByte] = unchecked((byte)((int)(targetRailPressure * 100) >> 8));
                 mf.p_151.pgn[mf.p_151.totalPressureTargetLowByte] = unchecked((byte)((int)(targetRailPressure * 100)));
             }
+            if (machineConfig == 1)
+            {
+                targetRailPressure = Math.Pow((targetRateGPM / 48), 2) * 275.51 - (targetRateGPM / 48) * 23.21 + 4.77;
+                if (targetRailPressure < 10)
+                {
+                    targetRailPressure = 10;
+                }
+                mf.p_151.pgn[mf.p_151.totalPressureTargetHighByte] = unchecked((byte)((int)(targetRailPressure * 100) >> 8));
+                mf.p_151.pgn[mf.p_151.totalPressureTargetLowByte] = unchecked((byte)((int)(targetRailPressure * 100)));
+            }
         }
         public void calculateRegulatorPosition()
         {
             targetRegPos = (int)(targetRailPressure * 100);
+            mf.p_151.pgn[mf.p_151.regulatorPositionTargetLowByte] = unchecked((byte)((int)(mf.tool.targetRegPos)));
+
+            mf.p_151.pgn[mf.p_151.regulatorPositionTargetHighByte] = unchecked((byte)((int)(mf.tool.targetRegPos) >> 8));
         }
         public void calculatePumpRPM()
         {
             targetPumpRPM = 150;
+            mf.p_151.pgn[mf.p_151.pumpRPMTargetLowByte] = unchecked((byte)((int)(targetPumpRPM)));
+            mf.p_151.pgn[mf.p_151.pumpRPMTargetHighByte] = unchecked((byte)((int)(targetPumpRPM) >> 8));
         }
         public void calculateSectionFlowRate()
         {
@@ -282,8 +298,16 @@ namespace AgOpenGPS
             targetRateGPMsum = 0;
             for (int i = 0; i < numOfSections; i++)
             {
-                mf.section[i].sectionSpeed = (mf.section[i].speedPixels / (pixelSpeedSum / numOfSections)) * mf.avgSpeed;
-                mf.section[i].sectionTargetRate = ((((mf.section[i].sectionSpeed * 1000) / 60) * mf.section[i].sectionWidth) / 4046.856) * targetRateGPA;
+                if (pixelSpeedSum > 0 && mf.avgSpeed > 0)
+                {
+                    mf.section[i].sectionSpeed = (mf.section[i].speedPixels / (pixelSpeedSum / numOfSections)) * mf.avgSpeed;
+                    mf.section[i].sectionTargetRate = ((((mf.section[i].sectionSpeed * 1000) / 60) * mf.section[i].sectionWidth) / 4046.856) * targetRateGPA;
+                } else
+                {
+                    mf.section[i].sectionSpeed = 0;
+                    mf.section[i].sectionTargetRate = 0;
+                }
+
                 if (mf.section[i].isSectionOn)
                 {
                     targetRateGPMsum += mf.section[i].sectionTargetRate;
@@ -309,7 +333,7 @@ namespace AgOpenGPS
                         mf.p_154.pgn[i * 2 + 8] = 0;
                     }
                 }
-                mf.SendPgnToLoop(mf.p_154.pgn);
+                //mf.SendPgnToLoop(mf.p_154.pgn);
             } 
             else if (machineConfig == 1)
             {
@@ -317,17 +341,21 @@ namespace AgOpenGPS
                 mf.p_154.pgn[5] = (byte)(1);
                 for (int i = 0; i < mf.tool.numOfSections; i++)
                 {
+                   
+                   
                     if (mf.section[i].isSectionOn)
                     {
+                        mf.section[i].sectionDutyTarget = mf.section[i].sectionSpeed * 100;
                         mf.p_154.pgn[i * 2 + 7] = unchecked((byte)((int)(mf.section[i].sectionDutyTarget) >> 8));
                         mf.p_154.pgn[i * 2 + 8] = unchecked((byte)((int)(mf.section[i].sectionDutyTarget)));
                     } else
                     {
                         mf.p_154.pgn[i * 2 + 7] = 0;
                         mf.p_154.pgn[i * 2 + 8] = 0;
+                        mf.section[i].sectionDutyTarget = 0;
                     }
                 }
-                mf.SendPgnToLoop(mf.p_154.pgn);
+                //mf.SendPgnToLoop(mf.p_154.pgn);
                 // Send Frequency Cmds //
                 mf.p_154.pgn[5] = (byte)(2);
                 for (int i = 0; i < mf.tool.numOfSections; i++)
@@ -343,7 +371,7 @@ namespace AgOpenGPS
                         mf.p_154.pgn[i * 2 + 8] = 0;
                     }
                 }
-                mf.SendPgnToLoop(mf.p_154.pgn);
+                //mf.SendPgnToLoop(mf.p_154.pgn);
             }
         }
         

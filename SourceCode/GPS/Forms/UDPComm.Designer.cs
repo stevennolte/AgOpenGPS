@@ -52,6 +52,14 @@ namespace AgOpenGPS
                 #endregion
                 switch (data[3])
                 {
+                    case 163:
+                        if (data[5]==161 && data[6] == 64)
+                        {
+                            tool.productModule.flowrateRpt=(double)(BitConverter.ToInt32(data, 15));
+                           
+                        }
+                        
+                        break;
                     case 0xD6:
                         {
                             if (udpWatch.ElapsedMilliseconds < udpWatchLimit)
@@ -277,6 +285,7 @@ namespace AgOpenGPS
                     case 0x98:
                         tool.railPressureRpt = (double)((data[16] * 256 + data[15]) / 100.0);
                         tool.railFlowrateRpt = (double)(data[18] * 256 + data[17]);
+                        tool.RegPosRpt = data[14] * 256 + data[13];
                         break;
                     case 162:
                         tool.foldModule.isJoystickConnected = true;

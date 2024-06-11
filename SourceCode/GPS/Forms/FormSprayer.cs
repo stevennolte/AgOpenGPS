@@ -11,6 +11,7 @@ using System.Diagnostics;
 using AgOpenGPS.Classes;
 using OpenTK.Audio.OpenAL;
 using static AgOpenGPS.Forms.FormPlanter;
+using Apache.Arrow;
 
 
 
@@ -43,14 +44,15 @@ namespace AgOpenGPS.Forms
             hearbeatTimer.Enabled = true;
             hearbeatTimer.Tick += new EventHandler(heartbeatTimer_Tick);
             createHealthLabels();
-            
 
+            
 
 
         }
         public class Remote
         {
             public DateTime lastMsgRecieved = DateTime.UtcNow;
+            public byte centerByte = Properties.Settings.Default.joystickCenterByte;
             public Remote() 
             { 
                 

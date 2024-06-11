@@ -12,6 +12,10 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml;
+using System.Xml.Linq;
+using System.Xml.Serialization;
+
 
 namespace AgOpenGPS.Forms
 {
@@ -21,9 +25,11 @@ namespace AgOpenGPS.Forms
         Timer loopTimer = new Timer();
         Timer hearbeatTimer = new Timer();
         public RowModule[] rowModule;
+        public ProductModule productModule;
         private byte numberofRowModules = 5;
-        
-
+        DataTable chartData = null;
+        public int ex = 1;
+       
         public FormPlanter(Form callingForm)
         {
             mf = callingForm as FormGPS;
@@ -37,15 +43,65 @@ namespace AgOpenGPS.Forms
             panelPlanterHealth.Location = new Point(12, 12);
             panelPlanterProduct.Location = new Point(12, 12);
             createHealthLabels();
-            JObject o1 = JObject.Parse(File.ReadAllText(@"C:\Users\NolteS\source\repos\AgOpenGPS\SourceCode\GPS\ValveData.json"));
-            //using (StreamReader file = File.OpenText(@"C:\Users\NolteS\source\repos\AgOpenGPS\SourceCode\GPS\ValveData.json"))
-            //using (JsonTextReader reader = new JsonTextReader(file))
+            //JObject o1 = JObject.Parse(File.ReadAllText(@"C:\Users\NolteS\Tools\Fertilizer\Packet_Parser\AOG_DataBase.json"));
+            //foreach (var i in o1)
             //{
-            //    JObject o2 = (JObject)JToken.ReadFrom(reader);
+            //    //Debug.WriteLine(i);
+            //    foreach (var ii in i.Value)
+            //    { 
+
+            //        Debug.WriteLine(ii); 
+                    
+            //    }
             //}
-            Debug.WriteLine(o1["row_0"]["default"].ToString());
+            chartData = new DataTable("RptData");
+            chartData.Columns.Add("ROW", typeof(int));
+            chartData.Columns.Add("CMD_FREQ", typeof(int));
+            chartData.Columns.Add("CMD_DUTY", typeof(int));
+            chartData.Columns.Add("FREQ_RPT", typeof(int));
+            chartData.Columns.Add("CAN_FM_RPT", typeof(int));
+
+            StringBuilder result = new StringBuilder();
+
+            //Load xml
+            //XDocument xdoc = XDocument.Load("C:\\Users\\NolteS\\Tools\\Fertilizer\\Packet_Parser\\AOG_DataBase.xml");
+
+            //Run query
+            
+
+            
+            for (int i = 1; i < 25; i++)
+            {
+                chartData.Rows.Add(i, 0, 0, 0, 0);
+            }
+            barChartPlanter.DataSource = chartData;
+            
+
+            
+            
         }
-        
+       
+        public class ProductModule
+        {
+            public int xPosition = 0;
+            public int yPosition = 0;
+            public int ipX = 0;
+            public int ipY = 75;
+            public int udpX = 0;
+            public int udpY = 95;
+            public int versionX = 0;
+            public int versionY = 115;
+            public Label ipLabel = new Label();
+            public Label ipAddLbl = new Label();
+            public Label udpLabel = new Label();
+            public Label udpValLbl = new Label();
+            public Label versionLabel = new Label();
+            public Label versionValLbl = new Label();
+            public Panel panel = new Panel();
+            public PictureBox moduleIcon = new PictureBox();
+            public ProductModule() { }
+        }
+
         public class RowModule
         {
             public int xPosition = 0;
@@ -68,13 +124,72 @@ namespace AgOpenGPS.Forms
         }
         private void createHealthLabels()
         {
+            
+            productModule = new ProductModule();
+            
+            productModule.panel.Size = new System.Drawing.Size(175, 150);
+            productModule.panel.Location = new Point(productModule.xPosition, productModule.yPosition);
+            productModule.moduleIcon.Image = Properties.Resources.ModuleOff1;
+            productModule.moduleIcon.Size = new System.Drawing.Size(64, 64);
+            productModule.moduleIcon.Location = new Point(50, 0);
+
+
+            productModule.ipLabel.Location = new Point(productModule.ipX, productModule.ipY);
+            productModule.ipLabel.Text = "IP Address: ";
+            productModule.ipLabel.BackColor = System.Drawing.Color.Transparent;
+            productModule.ipLabel.TextAlign = ContentAlignment.MiddleRight;
+            productModule.ipLabel.BorderStyle = BorderStyle.FixedSingle;
+
+            productModule.ipAddLbl.Location = new Point(productModule.ipX + productModule.ipLabel.Width + 10, productModule.ipY);
+            productModule.ipAddLbl.Text = "- - -";
+            productModule.ipAddLbl.BackColor = System.Drawing.Color.Transparent;
+            productModule.ipAddLbl.TextAlign = ContentAlignment.MiddleLeft;
+            ////////////////////    
+            productModule.udpLabel.Location = new Point(productModule.udpX, productModule.udpY);
+            productModule.udpLabel.Text = "UDP State: ";
+            productModule.udpLabel.BackColor = System.Drawing.Color.Transparent;
+            productModule.udpLabel.TextAlign = ContentAlignment.MiddleRight;
+
+            productModule.udpValLbl.Location = new Point(productModule.udpX + productModule.udpLabel.Width + 10, productModule.udpY);
+            productModule.udpValLbl.Text = "- - -";
+            productModule.udpValLbl.BackColor = System.Drawing.Color.Transparent;
+            productModule.udpValLbl.TextAlign = ContentAlignment.MiddleLeft;
+            
+            productModule.versionLabel.Location = new Point(productModule.versionX, productModule.versionY);
+            productModule.versionLabel.Text = "Version: ";
+            productModule.versionLabel.BackColor = System.Drawing.Color.Transparent;
+            productModule.versionLabel.TextAlign = ContentAlignment.MiddleRight;
+
+            productModule.versionValLbl.Location = new Point(productModule.versionX + productModule.versionLabel.Width + 10, productModule.versionY);
+            productModule.versionValLbl.Text = "- - -";
+            productModule.versionValLbl.BackColor = System.Drawing.Color.Transparent;
+            productModule.versionValLbl.TextAlign = ContentAlignment.MiddleLeft;
+
+            /////////////////
+            productModule.versionLabel.ForeColor = Color.White;
+            productModule.udpLabel.ForeColor = Color.White;
+            productModule.ipLabel.ForeColor = Color.White;
+            productModule.ipAddLbl.ForeColor = Color.White;
+            productModule.udpValLbl.ForeColor = Color.White;
+            productModule.versionValLbl.ForeColor = Color.White;
+
+            productModule.panel.Controls.Add(productModule.moduleIcon);
+            productModule.panel.Controls.Add(productModule.ipLabel);
+            productModule.panel.Controls.Add(productModule.udpLabel);
+            productModule.panel.Controls.Add(productModule.versionLabel);
+            productModule.panel.Controls.Add(productModule.ipAddLbl);
+            productModule.panel.Controls.Add(productModule.udpValLbl);
+            productModule.panel.Controls.Add(productModule.versionValLbl);
+
+            panelPlanterHealth.Controls.Add(productModule.panel);
+
             rowModule = new RowModule[numberofRowModules];
             for (int i = 0; i < numberofRowModules; i++)
             {
                 
                 rowModule[i] = new RowModule();
                 rowModule[i].yPosition = 0;
-                rowModule[i].xPosition = i * 175;
+                rowModule[i].xPosition = 175+i * 175;
                 //if (i > 2)
                 //{
                 //    rowModule[i].xPosition = 300;
@@ -143,13 +258,16 @@ namespace AgOpenGPS.Forms
         }
         private void loopTimer_Tick(object sender, EventArgs e)
         {
+
             if (toggleProductEnable.Checked == true)
             {
-                mf.tool.productEnable = 2;  // Enables closed loop control
+                mf.tool.productEnable = 1;
+                mf.p_151.pgn[mf.p_151.productEnable] = 1;// Enables closed loop control
             }
             else
             {
-                mf.tool.productEnable = 0;   // System Off
+                mf.tool.productEnable = 0;
+                mf.p_151.pgn[mf.p_151.productEnable] = 0;// System Off
             }
             mf.tool.toolCmdSetup();
             mf.tool.calculateToolFlowrate();
@@ -157,14 +275,41 @@ namespace AgOpenGPS.Forms
             mf.tool.calculateToolPressure();
             mf.tool.calculatePumpRPM();
             mf.tool.calculateRegulatorPosition();
+            mf.tool.calculateSectionCmd();
+            mf.tool.productModule.checkStatus();
+            for (int i = 0; i < 5; i++)
+            {
+                mf.tool.rowModules[i].checkStatus();
+            }
+            
             updateProductLabels();
             updateProgressBars();
-            mf.SendPgnToLoop(mf.p_151.pgn);
+            updateDatatable();
+            
+            //mf.SendPgnToLoop(mf.p_151.pgn);
+            if (ex == 1)
+            {
+                barChartPlanter.DataBind();
+            }
+            barChartPlanter.Update();
             //    updates labels ////////////
             //for (int i = 0; i < numberofRowModules; i++)
             //{
             //    rowModule[i].ipAddLbl.Text = DateTime.Now.Second.ToString();
             //}
+        }
+       
+        private void FormPlanter_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            ex = 0;
+
+        }
+        private void updateDatatable()
+        {
+            for (int i = 0; i < mf.tool.numOfSections; i++)
+            {
+                chartData.Rows[i]["CMD_DUTY"] = mf.section[i].sectionDutyTarget;
+            }
         }
 
         private void heartbeatTimer_Tick(object sender, EventArgs e)
@@ -175,8 +320,22 @@ namespace AgOpenGPS.Forms
 
         private void updateHealthLabels()
         {
+            
+            
             for (int i = 0; i < numberofRowModules; i++)
             {
+                if (mf.tool.productModule.isModuleConnected)
+                {
+                    productModule.ipAddLbl.Text = mf.tool.productModule.ipAddress.ToString();
+                    productModule.udpValLbl.Text = mf.tool.productModule.udpState.ToString();
+                    productModule.versionValLbl.Text = mf.tool.productModule.version.ToString();
+                } else
+                {
+                    productModule.ipAddLbl.Text = "- - -";
+                    productModule.udpValLbl.Text = "- - -";
+                    productModule.versionValLbl.Text = "- - -";
+                }
+
                 if (mf.tool.rowModules[i].isModuleConnected)
                 {
                     rowModule[i].ipAddLbl.Text = mf.tool.rowModules[i].ipAddress.ToString();
@@ -202,7 +361,7 @@ namespace AgOpenGPS.Forms
         #region Display Updates
         private void updateProductLabels()
         {
-            labelTargetRate.Text = String.Format("{0:0.00}", mf.tool.targetRateGPA);
+            
             labelpbTargetRate.Text = String.Format("{0:0.00}", mf.tool.targetRateGPA);
             lblpbPressureTarget.Text = String.Format("{0:0.00}", mf.tool.targetRailPressure);
             lblpbFlowTarget.Text = String.Format("{0:0.00}", mf.tool.targetRateGPMsum);
@@ -219,6 +378,7 @@ namespace AgOpenGPS.Forms
         private void updateProgressBars()
         {
             pbRateTarget.Value = (int)(mf.tool.targetRateGPA * 100);
+            pbRailFlowrateTarget.Value = (int)(mf.tool.targetRateGPMsum * 100);
         }
         #endregion
 
@@ -285,6 +445,22 @@ namespace AgOpenGPS.Forms
                 Properties.Settings.Default.Save();
 
             }
+        }
+
+        private void label13_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void FormPlanter_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnModuleReboot_Click(object sender, EventArgs e)
+        {
+            mf.p_157.pgn[mf.p_157.ipAddressReboot] = 51;
+            mf.SendPgnToLoop(mf.p_157.pgn);
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Parquet.Schema;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,6 +14,7 @@ namespace AgOpenGPS.Forms
 {
     public partial class FormDataLog : Form
     {
+        
         private FormGPS mf = null;
         Timer logTimer = new Timer();
         public StreamWriter outputData = null;
@@ -30,6 +32,7 @@ namespace AgOpenGPS.Forms
             logTimer.Tick += new EventHandler(dataWrite);
             #endregion
 
+            
         }
 
         public void dataWrite(object sender, EventArgs e)
