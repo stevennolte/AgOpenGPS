@@ -1475,6 +1475,7 @@
             this.ClientSize = new System.Drawing.Size(1186, 622);
             this.Controls.Add(this.tabPages);
             this.Controls.Add(this.panel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormSprayer";
             this.Text = "Sprayer";
             this.Load += new System.EventHandler(this.FormSprayer_Load);

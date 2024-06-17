@@ -267,10 +267,16 @@
     <Compile Include="Forms\Field\FormBndTool.Designer.cs">
       <DependentUpon>FormBndTool.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\FormRemoteSettings.cs">
+    <Compile Include="Forms\Sprayer\SprayerDock.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\FormRemoteSettings.Designer.cs">
+    <Compile Include="Forms\Sprayer\SprayerDock.Designer.cs">
+      <DependentUpon>SprayerDock.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Sprayer\FormRemoteSettings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Sprayer\FormRemoteSettings.Designer.cs">
       <DependentUpon>FormRemoteSettings.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\FormDataLog.cs">
@@ -278,12 +284,6 @@
     </Compile>
     <Compile Include="Forms\FormDataLog.Designer.cs">
       <DependentUpon>FormDataLog.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\FormLiquidPanel.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\FormLiquidPanel.Designer.cs">
-      <DependentUpon>FormLiquidPanel.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\FormLiquidSelect.cs">
       <SubType>Form</SubType>
@@ -297,10 +297,10 @@
     <Compile Include="Forms\FormPlanter.Designer.cs">
       <DependentUpon>FormPlanter.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\FormSprayer.cs">
+    <Compile Include="Forms\Sprayer\FormSprayer.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\FormSprayer.Designer.cs">
+    <Compile Include="Forms\Sprayer\FormSprayer.Designer.cs">
       <DependentUpon>FormSprayer.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\FormRateMap.cs">
@@ -777,9 +777,6 @@
     <EmbeddedResource Include="Forms\Field\FormBndTool.resx">
       <DependentUpon>FormBndTool.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FormLiquidPanel.resx">
-      <DependentUpon>FormLiquidPanel.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormLiquidSelect.resx">
       <DependentUpon>FormLiquidSelect.cs</DependentUpon>
     </EmbeddedResource>
@@ -806,10 +803,10 @@
     <EmbeddedResource Include="Forms\FormMap.resx">
       <DependentUpon>FormMap.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FormRemoteSettings.resx">
+    <EmbeddedResource Include="Forms\Sprayer\FormRemoteSettings.resx">
       <DependentUpon>FormRemoteSettings.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FormSprayer.resx">
+    <EmbeddedResource Include="Forms\Sprayer\FormSprayer.resx">
       <DependentUpon>FormSprayer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormYes.resx">
@@ -951,6 +948,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Settings\FormSteerWiz.resx">
       <DependentUpon>FormSteerWiz.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Sprayer\SprayerDock.resx">
+      <DependentUpon>SprayerDock.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="gStr.da.resx">
       <Generator>ResXFileCodeGenerator</Generator>

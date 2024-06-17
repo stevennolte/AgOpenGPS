@@ -447,6 +447,7 @@
             this.Text = "System Data";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormGPSData_FormClosing);
             this.Load += new System.EventHandler(this.FormGPSData_Load);
+            this.TransparencyKey = System.Drawing.Color.Black;
             this.ResumeLayout(false);
             this.PerformLayout();
 

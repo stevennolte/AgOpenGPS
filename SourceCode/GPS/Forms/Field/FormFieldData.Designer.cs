@@ -334,6 +334,7 @@
             this.ShowInTaskbar = false;
             this.Text = "System Data";
             this.Load += new System.EventHandler(this.FormFieldData_Load);
+            this.TransparencyKey = System.Drawing.Color.Black;
             this.ResumeLayout(false);
             this.PerformLayout();
 

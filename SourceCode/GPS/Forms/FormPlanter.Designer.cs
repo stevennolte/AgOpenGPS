@@ -1067,7 +1067,7 @@
             this.Controls.Add(this.panelPlanterHealth);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormPlanter";
-            this.TransparencyKey = System.Drawing.Color.Black;
+            //this.TransparencyKey = System.Drawing.Color.Black;
             this.Load += new System.EventHandler(this.FormPlanter_Load);
             this.panel1.ResumeLayout(false);
             this.panelPlanterHealth.ResumeLayout(false);

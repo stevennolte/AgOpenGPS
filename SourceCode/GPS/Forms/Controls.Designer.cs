@@ -11,6 +11,7 @@ using System.Linq;
 using System.Windows.Forms;
 using AgOpenGPS.Forms;
 using AgOpenGPS.Forms.Pickers;
+using AgOpenGPS.Forms.Sprayer;
 using AgOpenGPS.Properties;
 using Microsoft.Win32;
 
@@ -965,7 +966,7 @@ namespace AgOpenGPS
         #region My Stuff
         private void btnLiquid_Click(object sender, EventArgs e)
         {
-            Form f = Application.OpenForms["FormPlanter"];
+            Form f = Application.OpenForms["SprayerDock"];
             if (f != null)
             {
                 f.Focus();
@@ -985,10 +986,10 @@ namespace AgOpenGPS
 
             isProductPanelHidden = false;
             PanelsAndOGLSize();
-            Form form = new FormPlanter(this);
-            form.Location = new Point(oglMain.Left, 65);
+            Form form = new SprayerDock(this);
+            form.Location = new Point(oglMain.Left-26, 45);
             form.Width = oglMain.Width;
-            form.Height = 200;
+            form.Height = 145;
             form.TopLevel = false; 
             this.Controls.Add(form);
             form.BringToFront();
