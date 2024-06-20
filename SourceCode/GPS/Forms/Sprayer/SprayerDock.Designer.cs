@@ -342,7 +342,7 @@
             this.toggleAutoControl.Checked = false;
             this.toggleAutoControl.Cursor = System.Windows.Forms.Cursors.Hand;
             this.toggleAutoControl.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.toggleAutoControl.Location = new System.Drawing.Point(1024, 53);
+            this.toggleAutoControl.Location = new System.Drawing.Point(520, 49);
             this.toggleAutoControl.Name = "toggleAutoControl";
             this.toggleAutoControl.Options = ReaLTaiizor.Controls.ForeverToggle._Options.Style1;
             this.toggleAutoControl.Size = new System.Drawing.Size(76, 33);
@@ -356,7 +356,7 @@
             // 
             this.label37.BackColor = System.Drawing.Color.Gray;
             this.label37.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label37.Location = new System.Drawing.Point(938, 48);
+            this.label37.Location = new System.Drawing.Point(434, 44);
             this.label37.Name = "label37";
             this.label37.Size = new System.Drawing.Size(171, 41);
             this.label37.TabIndex = 88;
@@ -372,7 +372,7 @@
             this.toggleRemote.Checked = false;
             this.toggleRemote.Cursor = System.Windows.Forms.Cursors.Hand;
             this.toggleRemote.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.toggleRemote.Location = new System.Drawing.Point(1025, 8);
+            this.toggleRemote.Location = new System.Drawing.Point(521, 4);
             this.toggleRemote.Name = "toggleRemote";
             this.toggleRemote.Options = ReaLTaiizor.Controls.ForeverToggle._Options.Style1;
             this.toggleRemote.Size = new System.Drawing.Size(76, 33);
@@ -390,7 +390,7 @@
             this.toggleProductEnable.Checked = false;
             this.toggleProductEnable.Cursor = System.Windows.Forms.Cursors.Hand;
             this.toggleProductEnable.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.toggleProductEnable.Location = new System.Drawing.Point(1025, 97);
+            this.toggleProductEnable.Location = new System.Drawing.Point(521, 93);
             this.toggleProductEnable.Name = "toggleProductEnable";
             this.toggleProductEnable.Options = ReaLTaiizor.Controls.ForeverToggle._Options.Style1;
             this.toggleProductEnable.Size = new System.Drawing.Size(76, 33);
@@ -403,7 +403,7 @@
             // 
             this.label36.BackColor = System.Drawing.Color.Gray;
             this.label36.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label36.Location = new System.Drawing.Point(938, 4);
+            this.label36.Location = new System.Drawing.Point(434, 0);
             this.label36.Name = "label36";
             this.label36.Size = new System.Drawing.Size(171, 41);
             this.label36.TabIndex = 86;
@@ -414,7 +414,7 @@
             // 
             this.label5.BackColor = System.Drawing.Color.Gray;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(938, 92);
+            this.label5.Location = new System.Drawing.Point(434, 88);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(171, 41);
             this.label5.TabIndex = 84;
@@ -426,12 +426,12 @@
             this.btnModuleReboot.AutoSize = true;
             this.btnModuleReboot.BackgroundImage = global::AgOpenGPS.Properties.Resources.Reboot;
             this.btnModuleReboot.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btnModuleReboot.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnModuleReboot.Location = new System.Drawing.Point(1115, 0);
+            this.btnModuleReboot.Location = new System.Drawing.Point(675, 9);
             this.btnModuleReboot.Name = "btnModuleReboot";
-            this.btnModuleReboot.Size = new System.Drawing.Size(72, 143);
+            this.btnModuleReboot.Size = new System.Drawing.Size(72, 112);
             this.btnModuleReboot.TabIndex = 89;
             this.btnModuleReboot.UseVisualStyleBackColor = true;
+            this.btnModuleReboot.Click += new System.EventHandler(this.btnModuleReboot_Click);
             // 
             // SprayerDock
             // 

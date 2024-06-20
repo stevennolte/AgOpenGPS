@@ -31,6 +31,10 @@ namespace AgOpenGPS.Forms
         PidController pumpController = new PidController(GainProportional,GainIntegral,GainDerivative,OutputMax,OutputMin);
         public DateTime previousPumpCtrlTime = DateTime.UtcNow;
         public RowModule[] rowModule;
+        public double gainProp = Properties.Settings.Default.pump_prop_gain;
+        public double gainInt = Properties.Settings.Default.pump_int_gain;
+        public double cmdMax = Properties.Settings.Default.pump_max_cmd;
+        public double cmdMin = Properties.Settings.Default.pump_min_cmd;
 
         public FormSprayer(Form callingForm)
         {
@@ -345,6 +349,16 @@ namespace AgOpenGPS.Forms
         {
             if (toggleRemote.Checked) { mf.tool.foldModule.joystickEnabled = true; }
             else if (!toggleRemote.Checked) { mf.tool.foldModule.joystickEnabled = false; } 
+        }
+
+        private void label38_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            GainProportional = GainProportional - 0.01;
         }
     }
 }

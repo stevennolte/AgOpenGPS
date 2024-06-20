@@ -105,6 +105,27 @@
             this.label5 = new System.Windows.Forms.Label();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.panelSprayerHealth = new System.Windows.Forms.Panel();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.panel2 = new ReaLTaiizor.Controls.Panel();
+            this.label38 = new System.Windows.Forms.Label();
+            this.label39 = new System.Windows.Forms.Label();
+            this.panel3 = new ReaLTaiizor.Controls.Panel();
+            this.label40 = new System.Windows.Forms.Label();
+            this.label41 = new System.Windows.Forms.Label();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.panel4 = new ReaLTaiizor.Controls.Panel();
+            this.label42 = new System.Windows.Forms.Label();
+            this.label43 = new System.Windows.Forms.Label();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
+            this.panel5 = new ReaLTaiizor.Controls.Panel();
+            this.label44 = new System.Windows.Forms.Label();
+            this.label45 = new System.Windows.Forms.Label();
+            this.button7 = new System.Windows.Forms.Button();
+            this.button8 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel18.SuspendLayout();
             this.tabPages.SuspendLayout();
@@ -112,6 +133,11 @@
             this.tabPageFold.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picboxJoystick)).BeginInit();
             this.tabPage1.SuspendLayout();
+            this.tabPage2.SuspendLayout();
+            this.panel2.SuspendLayout();
+            this.panel3.SuspendLayout();
+            this.panel4.SuspendLayout();
+            this.panel5.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -850,6 +876,7 @@
             this.tabPages.Controls.Add(this.tabPageProduct);
             this.tabPages.Controls.Add(this.tabPageFold);
             this.tabPages.Controls.Add(this.tabPage1);
+            this.tabPages.Controls.Add(this.tabPage2);
             this.tabPages.DeactiveFontColor = System.Drawing.Color.White;
             this.tabPages.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabPages.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
@@ -1466,6 +1493,278 @@
             this.panelSprayerHealth.Size = new System.Drawing.Size(428, 329);
             this.panelSprayerHealth.TabIndex = 0;
             // 
+            // tabPage2
+            // 
+            this.tabPage2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(70)))), ((int)(((byte)(73)))));
+            this.tabPage2.Controls.Add(this.panel5);
+            this.tabPage2.Controls.Add(this.panel4);
+            this.tabPage2.Controls.Add(this.panel3);
+            this.tabPage2.Controls.Add(this.panel2);
+            this.tabPage2.Location = new System.Drawing.Point(4, 44);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(1028, 574);
+            this.tabPage2.TabIndex = 3;
+            this.tabPage2.Text = "SETTINGS";
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Image = global::AgOpenGPS.Properties.Resources.right_arrow;
+            this.button1.Location = new System.Drawing.Point(210, 28);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(58, 59);
+            this.button1.TabIndex = 40;
+            this.button1.UseVisualStyleBackColor = false;
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Image = global::AgOpenGPS.Properties.Resources.left_arrow;
+            this.button2.Location = new System.Drawing.Point(131, 28);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(58, 59);
+            this.button2.TabIndex = 41;
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(51)))), ((int)(((byte)(63)))));
+            this.panel2.Controls.Add(this.label39);
+            this.panel2.Controls.Add(this.label38);
+            this.panel2.Controls.Add(this.button2);
+            this.panel2.Controls.Add(this.button1);
+            this.panel2.EdgeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(41)))), ((int)(((byte)(50)))));
+            this.panel2.Location = new System.Drawing.Point(48, 41);
+            this.panel2.Name = "panel2";
+            this.panel2.Padding = new System.Windows.Forms.Padding(5);
+            this.panel2.Size = new System.Drawing.Size(294, 108);
+            this.panel2.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.panel2.TabIndex = 42;
+            this.panel2.Text = "panel2";
+            // 
+            // label38
+            // 
+            this.label38.AutoSize = true;
+            this.label38.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label38.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label38.ForeColor = System.Drawing.Color.White;
+            this.label38.Location = new System.Drawing.Point(8, 5);
+            this.label38.Name = "label38";
+            this.label38.Size = new System.Drawing.Size(249, 20);
+            this.label38.TabIndex = 46;
+            this.label38.Text = "PUMP PROPROTIONAL GAIN";
+            this.label38.Click += new System.EventHandler(this.label38_Click);
+            // 
+            // label39
+            // 
+            this.label39.BackColor = System.Drawing.Color.Black;
+            this.label39.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label39.ForeColor = System.Drawing.Color.White;
+            this.label39.Location = new System.Drawing.Point(8, 37);
+            this.label39.Name = "label39";
+            this.label39.Size = new System.Drawing.Size(113, 45);
+            this.label39.TabIndex = 47;
+            this.label39.Text = "0.00";
+            this.label39.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(51)))), ((int)(((byte)(63)))));
+            this.panel3.Controls.Add(this.label40);
+            this.panel3.Controls.Add(this.label41);
+            this.panel3.Controls.Add(this.button3);
+            this.panel3.Controls.Add(this.button4);
+            this.panel3.EdgeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(41)))), ((int)(((byte)(50)))));
+            this.panel3.Location = new System.Drawing.Point(48, 159);
+            this.panel3.Name = "panel3";
+            this.panel3.Padding = new System.Windows.Forms.Padding(5);
+            this.panel3.Size = new System.Drawing.Size(294, 108);
+            this.panel3.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.panel3.TabIndex = 48;
+            this.panel3.Text = "panel3";
+            // 
+            // label40
+            // 
+            this.label40.BackColor = System.Drawing.Color.Black;
+            this.label40.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label40.ForeColor = System.Drawing.Color.White;
+            this.label40.Location = new System.Drawing.Point(8, 37);
+            this.label40.Name = "label40";
+            this.label40.Size = new System.Drawing.Size(113, 45);
+            this.label40.TabIndex = 47;
+            this.label40.Text = "0.00";
+            this.label40.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label41
+            // 
+            this.label41.AutoSize = true;
+            this.label41.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label41.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label41.ForeColor = System.Drawing.Color.White;
+            this.label41.Location = new System.Drawing.Point(8, 5);
+            this.label41.Name = "label41";
+            this.label41.Size = new System.Drawing.Size(201, 20);
+            this.label41.TabIndex = 46;
+            this.label41.Text = "PUMP INTEGRAL GAIN";
+            // 
+            // button3
+            // 
+            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.button3.FlatAppearance.BorderSize = 0;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.Image = global::AgOpenGPS.Properties.Resources.left_arrow;
+            this.button3.Location = new System.Drawing.Point(131, 28);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(58, 59);
+            this.button3.TabIndex = 41;
+            this.button3.UseVisualStyleBackColor = false;
+            // 
+            // button4
+            // 
+            this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.button4.FlatAppearance.BorderSize = 0;
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button4.Image = global::AgOpenGPS.Properties.Resources.right_arrow;
+            this.button4.Location = new System.Drawing.Point(210, 28);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(58, 59);
+            this.button4.TabIndex = 40;
+            this.button4.UseVisualStyleBackColor = false;
+            // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(51)))), ((int)(((byte)(63)))));
+            this.panel4.Controls.Add(this.label42);
+            this.panel4.Controls.Add(this.label43);
+            this.panel4.Controls.Add(this.button5);
+            this.panel4.Controls.Add(this.button6);
+            this.panel4.EdgeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(41)))), ((int)(((byte)(50)))));
+            this.panel4.Location = new System.Drawing.Point(48, 283);
+            this.panel4.Name = "panel4";
+            this.panel4.Padding = new System.Windows.Forms.Padding(5);
+            this.panel4.Size = new System.Drawing.Size(294, 108);
+            this.panel4.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.panel4.TabIndex = 49;
+            this.panel4.Text = "panel4";
+            // 
+            // label42
+            // 
+            this.label42.BackColor = System.Drawing.Color.Black;
+            this.label42.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label42.ForeColor = System.Drawing.Color.White;
+            this.label42.Location = new System.Drawing.Point(8, 37);
+            this.label42.Name = "label42";
+            this.label42.Size = new System.Drawing.Size(113, 45);
+            this.label42.TabIndex = 47;
+            this.label42.Text = "0.00";
+            this.label42.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label43
+            // 
+            this.label43.AutoSize = true;
+            this.label43.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label43.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label43.ForeColor = System.Drawing.Color.White;
+            this.label43.Location = new System.Drawing.Point(8, 5);
+            this.label43.Name = "label43";
+            this.label43.Size = new System.Drawing.Size(159, 20);
+            this.label43.TabIndex = 46;
+            this.label43.Text = "PUMP MIN VALUE";
+            // 
+            // button5
+            // 
+            this.button5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.button5.FlatAppearance.BorderSize = 0;
+            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button5.Image = global::AgOpenGPS.Properties.Resources.left_arrow;
+            this.button5.Location = new System.Drawing.Point(131, 28);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(58, 59);
+            this.button5.TabIndex = 41;
+            this.button5.UseVisualStyleBackColor = false;
+            // 
+            // button6
+            // 
+            this.button6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.button6.FlatAppearance.BorderSize = 0;
+            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button6.Image = global::AgOpenGPS.Properties.Resources.right_arrow;
+            this.button6.Location = new System.Drawing.Point(210, 28);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(58, 59);
+            this.button6.TabIndex = 40;
+            this.button6.UseVisualStyleBackColor = false;
+            // 
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(51)))), ((int)(((byte)(63)))));
+            this.panel5.Controls.Add(this.label44);
+            this.panel5.Controls.Add(this.label45);
+            this.panel5.Controls.Add(this.button7);
+            this.panel5.Controls.Add(this.button8);
+            this.panel5.EdgeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(41)))), ((int)(((byte)(50)))));
+            this.panel5.Location = new System.Drawing.Point(48, 406);
+            this.panel5.Name = "panel5";
+            this.panel5.Padding = new System.Windows.Forms.Padding(5);
+            this.panel5.Size = new System.Drawing.Size(294, 108);
+            this.panel5.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.panel5.TabIndex = 50;
+            this.panel5.Text = "panel5";
+            // 
+            // label44
+            // 
+            this.label44.BackColor = System.Drawing.Color.Black;
+            this.label44.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label44.ForeColor = System.Drawing.Color.White;
+            this.label44.Location = new System.Drawing.Point(8, 37);
+            this.label44.Name = "label44";
+            this.label44.Size = new System.Drawing.Size(113, 45);
+            this.label44.TabIndex = 47;
+            this.label44.Text = "0.00";
+            this.label44.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label45
+            // 
+            this.label45.AutoSize = true;
+            this.label45.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label45.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label45.ForeColor = System.Drawing.Color.White;
+            this.label45.Location = new System.Drawing.Point(8, 5);
+            this.label45.Name = "label45";
+            this.label45.Size = new System.Drawing.Size(165, 20);
+            this.label45.TabIndex = 46;
+            this.label45.Text = "PUMP MAX VALUE";
+            // 
+            // button7
+            // 
+            this.button7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.button7.FlatAppearance.BorderSize = 0;
+            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button7.Image = global::AgOpenGPS.Properties.Resources.left_arrow;
+            this.button7.Location = new System.Drawing.Point(131, 28);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(58, 59);
+            this.button7.TabIndex = 41;
+            this.button7.UseVisualStyleBackColor = false;
+            // 
+            // button8
+            // 
+            this.button8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.button8.FlatAppearance.BorderSize = 0;
+            this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button8.Image = global::AgOpenGPS.Properties.Resources.right_arrow;
+            this.button8.Location = new System.Drawing.Point(210, 28);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(58, 59);
+            this.button8.TabIndex = 40;
+            this.button8.UseVisualStyleBackColor = false;
+            // 
             // FormSprayer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1475,7 +1774,6 @@
             this.ClientSize = new System.Drawing.Size(1186, 622);
             this.Controls.Add(this.tabPages);
             this.Controls.Add(this.panel1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormSprayer";
             this.Text = "Sprayer";
             this.Load += new System.EventHandler(this.FormSprayer_Load);
@@ -1488,6 +1786,15 @@
             this.tabPageFold.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picboxJoystick)).EndInit();
             this.tabPage1.ResumeLayout(false);
+            this.tabPage2.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
+            this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1571,5 +1878,26 @@
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.Panel panelSprayerHealth;
         private System.Windows.Forms.PictureBox picboxJoystick;
+        private System.Windows.Forms.TabPage tabPage2;
+        private ReaLTaiizor.Controls.Panel panel2;
+        private System.Windows.Forms.Label label38;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button1;
+        private ReaLTaiizor.Controls.Panel panel5;
+        private System.Windows.Forms.Label label44;
+        private System.Windows.Forms.Label label45;
+        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button button8;
+        private ReaLTaiizor.Controls.Panel panel4;
+        private System.Windows.Forms.Label label42;
+        private System.Windows.Forms.Label label43;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button button6;
+        private ReaLTaiizor.Controls.Panel panel3;
+        private System.Windows.Forms.Label label40;
+        private System.Windows.Forms.Label label41;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Label label39;
     }
 }

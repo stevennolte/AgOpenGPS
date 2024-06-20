@@ -23,5 +23,18 @@ namespace AgOpenGPS.Forms.Sprayer
         {
 
         }
+
+        private void btnModuleReboot_Click(object sender, EventArgs e)
+        {
+            Form f = Application.OpenForms["FormSprayer"];
+            if (f != null)
+            {
+                f.Focus();
+            
+                return;
+            }
+            Form form = new FormSprayer(mf);
+            form.Show();
+        }
     }
 }

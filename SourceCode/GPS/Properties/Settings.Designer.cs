@@ -2963,5 +2963,53 @@ namespace AgOpenGPS.Properties {
                 this["joystickCenterByte"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public float pump_prop_gain {
+            get {
+                return ((float)(this["pump_prop_gain"]));
+            }
+            set {
+                this["pump_prop_gain"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public float pump_int_gain {
+            get {
+                return ((float)(this["pump_int_gain"]));
+            }
+            set {
+                this["pump_int_gain"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public double pump_min_cmd {
+            get {
+                return ((double)(this["pump_min_cmd"]));
+            }
+            set {
+                this["pump_min_cmd"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public double pump_max_cmd {
+            get {
+                return ((double)(this["pump_max_cmd"]));
+            }
+            set {
+                this["pump_max_cmd"] = value;
+            }
+        }
     }
 }

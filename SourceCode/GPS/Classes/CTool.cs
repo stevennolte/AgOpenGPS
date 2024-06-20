@@ -65,7 +65,7 @@ namespace AgOpenGPS
         public double targetRailPressure = 0;
         public double railPressureRpt = 0;
         public double railFlowrateRpt = 0;
-        public byte machineConfig = 1; // 1 = Planter, 2=Sprayer
+        public byte machineConfig = 2; // 1 = Planter, 2=Sprayer
         public int manualPumpCmd = 0;
         public byte numofRowModules = 5;
         public bool isRemoteConnected = false;
@@ -256,9 +256,9 @@ namespace AgOpenGPS
             if (machineConfig == 2)
             {
                 targetRailPressure = Math.Pow((targetRateGPM / 48), 2) * 275.51 - (targetRateGPM / 48) * 23.21 + 4.77;
-                if (targetRailPressure < 10)
+                if (targetRailPressure < 20)
                 {
-                    targetRailPressure = 10;
+                    targetRailPressure = 20;
                 }
                 mf.p_151.pgn[mf.p_151.totalPressureTargetHighByte] = unchecked((byte)((int)(targetRailPressure * 100) >> 8));
                 mf.p_151.pgn[mf.p_151.totalPressureTargetLowByte] = unchecked((byte)((int)(targetRailPressure * 100)));
@@ -266,9 +266,9 @@ namespace AgOpenGPS
             if (machineConfig == 1)
             {
                 targetRailPressure = Math.Pow((targetRateGPM / 48), 2) * 275.51 - (targetRateGPM / 48) * 23.21 + 4.77;
-                if (targetRailPressure < 10)
+                if (targetRailPressure < 20)
                 {
-                    targetRailPressure = 10;
+                    targetRailPressure = 20;
                 }
                 mf.p_151.pgn[mf.p_151.totalPressureTargetHighByte] = unchecked((byte)((int)(targetRailPressure * 100) >> 8));
                 mf.p_151.pgn[mf.p_151.totalPressureTargetLowByte] = unchecked((byte)((int)(targetRailPressure * 100)));
