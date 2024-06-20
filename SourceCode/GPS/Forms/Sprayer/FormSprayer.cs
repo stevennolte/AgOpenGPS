@@ -358,7 +358,7 @@ namespace AgOpenGPS.Forms
 
         private void button2_Click(object sender, EventArgs e)
         {
-            GainProportional = GainProportional - 0.01;
+            gainProp = gainProp - 0.01;
         }
     }
 }
