@@ -106,26 +106,26 @@
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.panelSprayerHealth = new System.Windows.Forms.Panel();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.panel2 = new ReaLTaiizor.Controls.Panel();
-            this.label38 = new System.Windows.Forms.Label();
-            this.label39 = new System.Windows.Forms.Label();
-            this.panel3 = new ReaLTaiizor.Controls.Panel();
-            this.label40 = new System.Windows.Forms.Label();
-            this.label41 = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.panel4 = new ReaLTaiizor.Controls.Panel();
-            this.label42 = new System.Windows.Forms.Label();
-            this.label43 = new System.Windows.Forms.Label();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
             this.panel5 = new ReaLTaiizor.Controls.Panel();
             this.label44 = new System.Windows.Forms.Label();
             this.label45 = new System.Windows.Forms.Label();
             this.button7 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
+            this.panel4 = new ReaLTaiizor.Controls.Panel();
+            this.label42 = new System.Windows.Forms.Label();
+            this.label43 = new System.Windows.Forms.Label();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
+            this.panel3 = new ReaLTaiizor.Controls.Panel();
+            this.label40 = new System.Windows.Forms.Label();
+            this.label41 = new System.Windows.Forms.Label();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.panel2 = new ReaLTaiizor.Controls.Panel();
+            this.label39 = new System.Windows.Forms.Label();
+            this.label38 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel18.SuspendLayout();
             this.tabPages.SuspendLayout();
@@ -134,10 +134,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.picboxJoystick)).BeginInit();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
-            this.panel2.SuspendLayout();
-            this.panel3.SuspendLayout();
-            this.panel4.SuspendLayout();
             this.panel5.SuspendLayout();
+            this.panel4.SuspendLayout();
+            this.panel3.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -285,7 +285,7 @@
             this.lblpbPumpCmdTarget.ForeColor = System.Drawing.Color.White;
             this.lblpbPumpCmdTarget.Location = new System.Drawing.Point(272, 325);
             this.lblpbPumpCmdTarget.Name = "lblpbPumpCmdTarget";
-            this.lblpbPumpCmdTarget.Size = new System.Drawing.Size(44, 20);
+            this.lblpbPumpCmdTarget.Size = new System.Drawing.Size(49, 24);
             this.lblpbPumpCmdTarget.TabIndex = 55;
             this.lblpbPumpCmdTarget.Text = "0.00";
             this.lblpbPumpCmdTarget.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -311,7 +311,7 @@
             this.lblpbFlowTarget.ForeColor = System.Drawing.Color.White;
             this.lblpbFlowTarget.Location = new System.Drawing.Point(272, 250);
             this.lblpbFlowTarget.Name = "lblpbFlowTarget";
-            this.lblpbFlowTarget.Size = new System.Drawing.Size(44, 20);
+            this.lblpbFlowTarget.Size = new System.Drawing.Size(49, 24);
             this.lblpbFlowTarget.TabIndex = 54;
             this.lblpbFlowTarget.Text = "0.00";
             this.lblpbFlowTarget.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -337,7 +337,7 @@
             this.lblpbPressureTarget.ForeColor = System.Drawing.Color.White;
             this.lblpbPressureTarget.Location = new System.Drawing.Point(272, 174);
             this.lblpbPressureTarget.Name = "lblpbPressureTarget";
-            this.lblpbPressureTarget.Size = new System.Drawing.Size(44, 20);
+            this.lblpbPressureTarget.Size = new System.Drawing.Size(49, 24);
             this.lblpbPressureTarget.TabIndex = 53;
             this.lblpbPressureTarget.Text = "0.00";
             this.lblpbPressureTarget.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -362,7 +362,7 @@
             this.labelpbTargetRate.ForeColor = System.Drawing.Color.White;
             this.labelpbTargetRate.Location = new System.Drawing.Point(272, 96);
             this.labelpbTargetRate.Name = "labelpbTargetRate";
-            this.labelpbTargetRate.Size = new System.Drawing.Size(44, 20);
+            this.labelpbTargetRate.Size = new System.Drawing.Size(49, 24);
             this.labelpbTargetRate.TabIndex = 52;
             this.labelpbTargetRate.Text = "0.00";
             this.labelpbTargetRate.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -387,7 +387,7 @@
             this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(162, 354);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(78, 20);
+            this.label2.Size = new System.Drawing.Size(90, 24);
             this.label2.TabIndex = 51;
             this.label2.Text = "ACTUAL";
             // 
@@ -399,7 +399,7 @@
             this.label21.ForeColor = System.Drawing.Color.White;
             this.label21.Location = new System.Drawing.Point(162, 125);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(78, 20);
+            this.label21.Size = new System.Drawing.Size(90, 24);
             this.label21.TabIndex = 46;
             this.label21.Text = "ACTUAL";
             // 
@@ -411,7 +411,7 @@
             this.label3.ForeColor = System.Drawing.Color.White;
             this.label3.Location = new System.Drawing.Point(160, 325);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(80, 20);
+            this.label3.Size = new System.Drawing.Size(93, 24);
             this.label3.TabIndex = 50;
             this.label3.Text = "TARGET";
             // 
@@ -423,7 +423,7 @@
             this.label22.ForeColor = System.Drawing.Color.White;
             this.label22.Location = new System.Drawing.Point(160, 96);
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(80, 20);
+            this.label22.Size = new System.Drawing.Size(93, 24);
             this.label22.TabIndex = 45;
             this.label22.Text = "TARGET";
             // 
@@ -631,7 +631,7 @@
             this.label17.ForeColor = System.Drawing.Color.White;
             this.label17.Location = new System.Drawing.Point(161, 279);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(78, 20);
+            this.label17.Size = new System.Drawing.Size(90, 24);
             this.label17.TabIndex = 39;
             this.label17.Text = "ACTUAL";
             // 
@@ -643,7 +643,7 @@
             this.label15.ForeColor = System.Drawing.Color.White;
             this.label15.Location = new System.Drawing.Point(161, 203);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(78, 20);
+            this.label15.Size = new System.Drawing.Size(90, 24);
             this.label15.TabIndex = 37;
             this.label15.Text = "ACTUAL";
             // 
@@ -655,7 +655,7 @@
             this.label18.ForeColor = System.Drawing.Color.White;
             this.label18.Location = new System.Drawing.Point(160, 250);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(80, 20);
+            this.label18.Size = new System.Drawing.Size(93, 24);
             this.label18.TabIndex = 38;
             this.label18.Text = "TARGET";
             // 
@@ -667,7 +667,7 @@
             this.label10.ForeColor = System.Drawing.Color.White;
             this.label10.Location = new System.Drawing.Point(159, 174);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(80, 20);
+            this.label10.Size = new System.Drawing.Size(93, 24);
             this.label10.TabIndex = 36;
             this.label10.Text = "TARGET";
             // 
@@ -984,7 +984,7 @@
             this.label33.ForeColor = System.Drawing.Color.White;
             this.label33.Location = new System.Drawing.Point(411, 413);
             this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(63, 20);
+            this.label33.Size = new System.Drawing.Size(74, 24);
             this.label33.TabIndex = 77;
             this.label33.Text = "DOWN";
             // 
@@ -996,7 +996,7 @@
             this.label34.ForeColor = System.Drawing.Color.White;
             this.label34.Location = new System.Drawing.Point(429, 380);
             this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(33, 20);
+            this.label34.Size = new System.Drawing.Size(37, 24);
             this.label34.TabIndex = 76;
             this.label34.Text = "UP";
             // 
@@ -1058,7 +1058,7 @@
             this.label30.ForeColor = System.Drawing.Color.White;
             this.label30.Location = new System.Drawing.Point(589, 308);
             this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(63, 20);
+            this.label30.Size = new System.Drawing.Size(74, 24);
             this.label30.TabIndex = 72;
             this.label30.Text = "DOWN";
             // 
@@ -1070,7 +1070,7 @@
             this.label31.ForeColor = System.Drawing.Color.White;
             this.label31.Location = new System.Drawing.Point(619, 269);
             this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(33, 20);
+            this.label31.Size = new System.Drawing.Size(37, 24);
             this.label31.TabIndex = 71;
             this.label31.Text = "UP";
             // 
@@ -1132,7 +1132,7 @@
             this.label27.ForeColor = System.Drawing.Color.White;
             this.label27.Location = new System.Drawing.Point(625, 90);
             this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(27, 20);
+            this.label27.Size = new System.Drawing.Size(30, 24);
             this.label27.TabIndex = 67;
             this.label27.Text = "IN";
             // 
@@ -1144,7 +1144,7 @@
             this.label28.ForeColor = System.Drawing.Color.White;
             this.label28.Location = new System.Drawing.Point(607, 52);
             this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(45, 20);
+            this.label28.Size = new System.Drawing.Size(53, 24);
             this.label28.TabIndex = 66;
             this.label28.Text = "OUT";
             // 
@@ -1206,7 +1206,7 @@
             this.label24.ForeColor = System.Drawing.Color.White;
             this.label24.Location = new System.Drawing.Point(619, 199);
             this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(27, 20);
+            this.label24.Size = new System.Drawing.Size(30, 24);
             this.label24.TabIndex = 62;
             this.label24.Text = "IN";
             // 
@@ -1218,7 +1218,7 @@
             this.label25.ForeColor = System.Drawing.Color.White;
             this.label25.Location = new System.Drawing.Point(607, 160);
             this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(45, 20);
+            this.label25.Size = new System.Drawing.Size(53, 24);
             this.label25.TabIndex = 61;
             this.label25.Text = "OUT";
             // 
@@ -1280,7 +1280,7 @@
             this.label16.ForeColor = System.Drawing.Color.White;
             this.label16.Location = new System.Drawing.Point(228, 308);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(63, 20);
+            this.label16.Size = new System.Drawing.Size(74, 24);
             this.label16.TabIndex = 57;
             this.label16.Text = "DOWN";
             // 
@@ -1292,7 +1292,7 @@
             this.label19.ForeColor = System.Drawing.Color.White;
             this.label19.Location = new System.Drawing.Point(246, 269);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(33, 20);
+            this.label19.Size = new System.Drawing.Size(37, 24);
             this.label19.TabIndex = 56;
             this.label19.Text = "UP";
             // 
@@ -1354,7 +1354,7 @@
             this.label8.ForeColor = System.Drawing.Color.White;
             this.label8.Location = new System.Drawing.Point(252, 199);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(27, 20);
+            this.label8.Size = new System.Drawing.Size(30, 24);
             this.label8.TabIndex = 52;
             this.label8.Text = "IN";
             // 
@@ -1366,7 +1366,7 @@
             this.label9.ForeColor = System.Drawing.Color.White;
             this.label9.Location = new System.Drawing.Point(246, 160);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(45, 20);
+            this.label9.Size = new System.Drawing.Size(53, 24);
             this.label9.TabIndex = 51;
             this.label9.Text = "OUT";
             // 
@@ -1428,7 +1428,7 @@
             this.label7.ForeColor = System.Drawing.Color.White;
             this.label7.Location = new System.Drawing.Point(252, 90);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(27, 20);
+            this.label7.Size = new System.Drawing.Size(30, 24);
             this.label7.TabIndex = 47;
             this.label7.Text = "IN";
             // 
@@ -1440,7 +1440,7 @@
             this.label6.ForeColor = System.Drawing.Color.White;
             this.label6.Location = new System.Drawing.Point(246, 51);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(45, 20);
+            this.label6.Size = new System.Drawing.Size(53, 24);
             this.label6.TabIndex = 46;
             this.label6.Text = "OUT";
             // 
@@ -1507,135 +1507,69 @@
             this.tabPage2.TabIndex = 3;
             this.tabPage2.Text = "SETTINGS";
             // 
-            // button1
+            // panel5
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Image = global::AgOpenGPS.Properties.Resources.right_arrow;
-            this.button1.Location = new System.Drawing.Point(210, 28);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(58, 59);
-            this.button1.TabIndex = 40;
-            this.button1.UseVisualStyleBackColor = false;
+            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(51)))), ((int)(((byte)(63)))));
+            this.panel5.Controls.Add(this.label44);
+            this.panel5.Controls.Add(this.label45);
+            this.panel5.Controls.Add(this.button7);
+            this.panel5.Controls.Add(this.button8);
+            this.panel5.EdgeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(41)))), ((int)(((byte)(50)))));
+            this.panel5.Location = new System.Drawing.Point(48, 406);
+            this.panel5.Name = "panel5";
+            this.panel5.Padding = new System.Windows.Forms.Padding(5);
+            this.panel5.Size = new System.Drawing.Size(294, 108);
+            this.panel5.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.panel5.TabIndex = 50;
+            this.panel5.Text = "panel5";
             // 
-            // button2
+            // label44
             // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Image = global::AgOpenGPS.Properties.Resources.left_arrow;
-            this.button2.Location = new System.Drawing.Point(131, 28);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(58, 59);
-            this.button2.TabIndex = 41;
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.label44.BackColor = System.Drawing.Color.Black;
+            this.label44.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label44.ForeColor = System.Drawing.Color.White;
+            this.label44.Location = new System.Drawing.Point(8, 37);
+            this.label44.Name = "label44";
+            this.label44.Size = new System.Drawing.Size(113, 45);
+            this.label44.TabIndex = 47;
+            this.label44.Text = "0.00";
+            this.label44.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // panel2
+            // label45
             // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(51)))), ((int)(((byte)(63)))));
-            this.panel2.Controls.Add(this.label39);
-            this.panel2.Controls.Add(this.label38);
-            this.panel2.Controls.Add(this.button2);
-            this.panel2.Controls.Add(this.button1);
-            this.panel2.EdgeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(41)))), ((int)(((byte)(50)))));
-            this.panel2.Location = new System.Drawing.Point(48, 41);
-            this.panel2.Name = "panel2";
-            this.panel2.Padding = new System.Windows.Forms.Padding(5);
-            this.panel2.Size = new System.Drawing.Size(294, 108);
-            this.panel2.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            this.panel2.TabIndex = 42;
-            this.panel2.Text = "panel2";
+            this.label45.AutoSize = true;
+            this.label45.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label45.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label45.ForeColor = System.Drawing.Color.White;
+            this.label45.Location = new System.Drawing.Point(8, 5);
+            this.label45.Name = "label45";
+            this.label45.Size = new System.Drawing.Size(192, 24);
+            this.label45.TabIndex = 46;
+            this.label45.Text = "PUMP MAX VALUE";
             // 
-            // label38
+            // button7
             // 
-            this.label38.AutoSize = true;
-            this.label38.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label38.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label38.ForeColor = System.Drawing.Color.White;
-            this.label38.Location = new System.Drawing.Point(8, 5);
-            this.label38.Name = "label38";
-            this.label38.Size = new System.Drawing.Size(249, 20);
-            this.label38.TabIndex = 46;
-            this.label38.Text = "PUMP PROPROTIONAL GAIN";
-            this.label38.Click += new System.EventHandler(this.label38_Click);
+            this.button7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.button7.FlatAppearance.BorderSize = 0;
+            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button7.Image = global::AgOpenGPS.Properties.Resources.left_arrow;
+            this.button7.Location = new System.Drawing.Point(131, 28);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(58, 59);
+            this.button7.TabIndex = 41;
+            this.button7.UseVisualStyleBackColor = false;
             // 
-            // label39
+            // button8
             // 
-            this.label39.BackColor = System.Drawing.Color.Black;
-            this.label39.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label39.ForeColor = System.Drawing.Color.White;
-            this.label39.Location = new System.Drawing.Point(8, 37);
-            this.label39.Name = "label39";
-            this.label39.Size = new System.Drawing.Size(113, 45);
-            this.label39.TabIndex = 47;
-            this.label39.Text = "0.00";
-            this.label39.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(51)))), ((int)(((byte)(63)))));
-            this.panel3.Controls.Add(this.label40);
-            this.panel3.Controls.Add(this.label41);
-            this.panel3.Controls.Add(this.button3);
-            this.panel3.Controls.Add(this.button4);
-            this.panel3.EdgeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(41)))), ((int)(((byte)(50)))));
-            this.panel3.Location = new System.Drawing.Point(48, 159);
-            this.panel3.Name = "panel3";
-            this.panel3.Padding = new System.Windows.Forms.Padding(5);
-            this.panel3.Size = new System.Drawing.Size(294, 108);
-            this.panel3.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            this.panel3.TabIndex = 48;
-            this.panel3.Text = "panel3";
-            // 
-            // label40
-            // 
-            this.label40.BackColor = System.Drawing.Color.Black;
-            this.label40.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label40.ForeColor = System.Drawing.Color.White;
-            this.label40.Location = new System.Drawing.Point(8, 37);
-            this.label40.Name = "label40";
-            this.label40.Size = new System.Drawing.Size(113, 45);
-            this.label40.TabIndex = 47;
-            this.label40.Text = "0.00";
-            this.label40.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label41
-            // 
-            this.label41.AutoSize = true;
-            this.label41.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label41.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label41.ForeColor = System.Drawing.Color.White;
-            this.label41.Location = new System.Drawing.Point(8, 5);
-            this.label41.Name = "label41";
-            this.label41.Size = new System.Drawing.Size(201, 20);
-            this.label41.TabIndex = 46;
-            this.label41.Text = "PUMP INTEGRAL GAIN";
-            // 
-            // button3
-            // 
-            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Image = global::AgOpenGPS.Properties.Resources.left_arrow;
-            this.button3.Location = new System.Drawing.Point(131, 28);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(58, 59);
-            this.button3.TabIndex = 41;
-            this.button3.UseVisualStyleBackColor = false;
-            // 
-            // button4
-            // 
-            this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.button4.FlatAppearance.BorderSize = 0;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Image = global::AgOpenGPS.Properties.Resources.right_arrow;
-            this.button4.Location = new System.Drawing.Point(210, 28);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(58, 59);
-            this.button4.TabIndex = 40;
-            this.button4.UseVisualStyleBackColor = false;
+            this.button8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.button8.FlatAppearance.BorderSize = 0;
+            this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button8.Image = global::AgOpenGPS.Properties.Resources.right_arrow;
+            this.button8.Location = new System.Drawing.Point(210, 28);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(58, 59);
+            this.button8.TabIndex = 40;
+            this.button8.UseVisualStyleBackColor = false;
             // 
             // panel4
             // 
@@ -1673,7 +1607,7 @@
             this.label43.ForeColor = System.Drawing.Color.White;
             this.label43.Location = new System.Drawing.Point(8, 5);
             this.label43.Name = "label43";
-            this.label43.Size = new System.Drawing.Size(159, 20);
+            this.label43.Size = new System.Drawing.Size(183, 24);
             this.label43.TabIndex = 46;
             this.label43.Text = "PUMP MIN VALUE";
             // 
@@ -1701,69 +1635,135 @@
             this.button6.TabIndex = 40;
             this.button6.UseVisualStyleBackColor = false;
             // 
-            // panel5
+            // panel3
             // 
-            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(51)))), ((int)(((byte)(63)))));
-            this.panel5.Controls.Add(this.label44);
-            this.panel5.Controls.Add(this.label45);
-            this.panel5.Controls.Add(this.button7);
-            this.panel5.Controls.Add(this.button8);
-            this.panel5.EdgeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(41)))), ((int)(((byte)(50)))));
-            this.panel5.Location = new System.Drawing.Point(48, 406);
-            this.panel5.Name = "panel5";
-            this.panel5.Padding = new System.Windows.Forms.Padding(5);
-            this.panel5.Size = new System.Drawing.Size(294, 108);
-            this.panel5.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            this.panel5.TabIndex = 50;
-            this.panel5.Text = "panel5";
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(51)))), ((int)(((byte)(63)))));
+            this.panel3.Controls.Add(this.label40);
+            this.panel3.Controls.Add(this.label41);
+            this.panel3.Controls.Add(this.button3);
+            this.panel3.Controls.Add(this.button4);
+            this.panel3.EdgeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(41)))), ((int)(((byte)(50)))));
+            this.panel3.Location = new System.Drawing.Point(48, 159);
+            this.panel3.Name = "panel3";
+            this.panel3.Padding = new System.Windows.Forms.Padding(5);
+            this.panel3.Size = new System.Drawing.Size(294, 108);
+            this.panel3.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.panel3.TabIndex = 48;
+            this.panel3.Text = "panel3";
             // 
-            // label44
+            // label40
             // 
-            this.label44.BackColor = System.Drawing.Color.Black;
-            this.label44.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label44.ForeColor = System.Drawing.Color.White;
-            this.label44.Location = new System.Drawing.Point(8, 37);
-            this.label44.Name = "label44";
-            this.label44.Size = new System.Drawing.Size(113, 45);
-            this.label44.TabIndex = 47;
-            this.label44.Text = "0.00";
-            this.label44.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label40.BackColor = System.Drawing.Color.Black;
+            this.label40.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label40.ForeColor = System.Drawing.Color.White;
+            this.label40.Location = new System.Drawing.Point(8, 37);
+            this.label40.Name = "label40";
+            this.label40.Size = new System.Drawing.Size(113, 45);
+            this.label40.TabIndex = 47;
+            this.label40.Text = "0.00";
+            this.label40.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label45
+            // label41
             // 
-            this.label45.AutoSize = true;
-            this.label45.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label45.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label45.ForeColor = System.Drawing.Color.White;
-            this.label45.Location = new System.Drawing.Point(8, 5);
-            this.label45.Name = "label45";
-            this.label45.Size = new System.Drawing.Size(165, 20);
-            this.label45.TabIndex = 46;
-            this.label45.Text = "PUMP MAX VALUE";
+            this.label41.AutoSize = true;
+            this.label41.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label41.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label41.ForeColor = System.Drawing.Color.White;
+            this.label41.Location = new System.Drawing.Point(8, 5);
+            this.label41.Name = "label41";
+            this.label41.Size = new System.Drawing.Size(229, 24);
+            this.label41.TabIndex = 46;
+            this.label41.Text = "PUMP INTEGRAL GAIN";
             // 
-            // button7
+            // button3
             // 
-            this.button7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.button7.FlatAppearance.BorderSize = 0;
-            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button7.Image = global::AgOpenGPS.Properties.Resources.left_arrow;
-            this.button7.Location = new System.Drawing.Point(131, 28);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(58, 59);
-            this.button7.TabIndex = 41;
-            this.button7.UseVisualStyleBackColor = false;
+            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.button3.FlatAppearance.BorderSize = 0;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.Image = global::AgOpenGPS.Properties.Resources.left_arrow;
+            this.button3.Location = new System.Drawing.Point(131, 28);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(58, 59);
+            this.button3.TabIndex = 41;
+            this.button3.UseVisualStyleBackColor = false;
             // 
-            // button8
+            // button4
             // 
-            this.button8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.button8.FlatAppearance.BorderSize = 0;
-            this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button8.Image = global::AgOpenGPS.Properties.Resources.right_arrow;
-            this.button8.Location = new System.Drawing.Point(210, 28);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(58, 59);
-            this.button8.TabIndex = 40;
-            this.button8.UseVisualStyleBackColor = false;
+            this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.button4.FlatAppearance.BorderSize = 0;
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button4.Image = global::AgOpenGPS.Properties.Resources.right_arrow;
+            this.button4.Location = new System.Drawing.Point(210, 28);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(58, 59);
+            this.button4.TabIndex = 40;
+            this.button4.UseVisualStyleBackColor = false;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(51)))), ((int)(((byte)(63)))));
+            this.panel2.Controls.Add(this.label39);
+            this.panel2.Controls.Add(this.label38);
+            this.panel2.Controls.Add(this.button2);
+            this.panel2.Controls.Add(this.button1);
+            this.panel2.EdgeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(41)))), ((int)(((byte)(50)))));
+            this.panel2.Location = new System.Drawing.Point(48, 41);
+            this.panel2.Name = "panel2";
+            this.panel2.Padding = new System.Windows.Forms.Padding(5);
+            this.panel2.Size = new System.Drawing.Size(294, 108);
+            this.panel2.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.panel2.TabIndex = 42;
+            this.panel2.Text = "panel2";
+            // 
+            // label39
+            // 
+            this.label39.BackColor = System.Drawing.Color.Black;
+            this.label39.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label39.ForeColor = System.Drawing.Color.White;
+            this.label39.Location = new System.Drawing.Point(8, 37);
+            this.label39.Name = "label39";
+            this.label39.Size = new System.Drawing.Size(113, 45);
+            this.label39.TabIndex = 47;
+            this.label39.Text = "0.00";
+            this.label39.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label38
+            // 
+            this.label38.AutoSize = true;
+            this.label38.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label38.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label38.ForeColor = System.Drawing.Color.White;
+            this.label38.Location = new System.Drawing.Point(8, 5);
+            this.label38.Name = "label38";
+            this.label38.Size = new System.Drawing.Size(288, 24);
+            this.label38.TabIndex = 46;
+            this.label38.Text = "PUMP PROPROTIONAL GAIN";
+            this.label38.Click += new System.EventHandler(this.label38_Click);
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Image = global::AgOpenGPS.Properties.Resources.left_arrow;
+            this.button2.Location = new System.Drawing.Point(131, 28);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(58, 59);
+            this.button2.TabIndex = 41;
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Image = global::AgOpenGPS.Properties.Resources.right_arrow;
+            this.button1.Location = new System.Drawing.Point(210, 28);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(58, 59);
+            this.button1.TabIndex = 40;
+            this.button1.UseVisualStyleBackColor = false;
             // 
             // FormSprayer
             // 
@@ -1787,14 +1787,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.picboxJoystick)).EndInit();
             this.tabPage1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
-            this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
 
         }
