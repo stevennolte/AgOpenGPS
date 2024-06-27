@@ -290,6 +290,11 @@ namespace AgOpenGPS
                     case 162:
                         tool.foldModule.isJoystickConnected = true;
                         tool.foldModule.lastJoystickMessageTimestamp = DateTime.UtcNow;
+                        for (int i = 5; i < 13; i++)
+                        {
+                            Debug.Write(data[i] + " ");
+                        }
+                        Debug.WriteLine("");
                         if (tool.foldModule.joystickEnabled)
                         {
                             if (data[5] == 1 && data[12] == 0)
