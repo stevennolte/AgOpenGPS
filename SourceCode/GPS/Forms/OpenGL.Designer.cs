@@ -1094,7 +1094,7 @@ namespace AgOpenGPS
                             triStrip[j].TurnMappingOff();
                     }
                 }
-                else if (!tool.isMultiColoredSections)
+                else if (tool.isMultiColoredSections)
                 {
                     //set the start and end positions from section points
                     for (int j = 0; j < tool.numOfSections; j++)
@@ -1173,7 +1173,7 @@ namespace AgOpenGPS
                         }
                     }
                 }
-                else if (tool.isMultiColoredSections) //could be else only but this is more clear
+                else if (!tool.isMultiColoredSections) //could be else only but this is more clear
                 {
                     //set the start and end positions from section points
                     for (int j = 0; j < tool.numOfSections; j++)

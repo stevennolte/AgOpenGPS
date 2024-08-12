@@ -31,23 +31,23 @@ namespace AgOpenGPS
             if (data.Length > 4 && data[0] == 0x80 && data[1] == 0x81)
             {
                 int Length = Math.Max((data[4]) + 5, 5);
-                if (data.Length > Length)
-                {
-                    byte CK_A = 0;
-                    for (int j = 2; j < Length; j++)
-                    {
-                        CK_A += data[j];
-                    }
+                //if (data.Length > Length)
+                //{
+                //    byte CK_A = 0;
+                //    for (int j = 2; j < Length; j++)
+                //    {
+                //        CK_A += data[j];
+                //    }
 
-                    if (data[Length] != (byte)CK_A)
-                    {
-                        return;
-                    }
-                }
-                else
-                {
-                    return;
-                }
+                //    if (data[Length] != (byte)CK_A)
+                //    {
+                //        return;
+                //    }
+                //}
+                //else
+                //{
+                //    return;
+                //}
 
                 switch (data[3])
                 {
@@ -269,7 +269,45 @@ namespace AgOpenGPS
 
                             break;
                         }
-                     #endregion
+                    #endregion
+
+                    #region Mystuff
+                    case 149:
+                        {
+                            switch (data[5])
+                            {
+                                case 1:  // Massflowrate and Moisture from Combine
+                                    {
+
+                                        break;
+                                    }
+                                case 2:  // All CANBUS Data Stream
+                                    {
+
+                                        break;
+                                    }
+                                case 3:  // Shutdown PC
+                                    {
+                                        break ;
+                                    }
+                                case 4:  //AgIO Health
+                                    {
+                                        health.imuState = data[6];
+                                        health.gpsState = data[7];
+                                        health.steerState = data[8];
+                                        break;
+                                    }
+                                case 150:  // Fold Commands from Sprayer
+                                    {
+                                        break;
+                                    }
+                                
+                                
+                            }       
+                            break;
+                        }
+
+                        #endregion
                 }
             }
         }

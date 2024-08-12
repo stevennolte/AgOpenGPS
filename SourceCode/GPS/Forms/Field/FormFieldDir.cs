@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AgOpenGPS.Forms;
+using System;
 using System.Globalization;
 using System.IO;
 using System.Text.RegularExpressions;
@@ -72,7 +73,7 @@ namespace AgOpenGPS
             {
                 return;
             }
-
+            
             if (mf.isJobStarted) mf.FileSaveEverythingBeforeClosingField();
 
             //append date time to name
@@ -120,6 +121,7 @@ namespace AgOpenGPS
                     //mf.FileSaveABLine();
                     //mf.FileSaveCurveLine();
                     //mf.FileSaveHeadland();
+                    mf.logData = true;
                 }
             }
             catch (Exception ex)
@@ -132,8 +134,9 @@ namespace AgOpenGPS
 
             DialogResult = DialogResult.OK;
             Close();
+            
         }
-
+        
         private void tboxFieldName_Click(object sender, EventArgs e)
         {
             if (mf.isKeyboardOn)

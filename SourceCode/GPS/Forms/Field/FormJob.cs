@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AgOpenGPS.Forms;
+using System;
 using System.Drawing;
 using System.Globalization;
 using System.IO;
@@ -73,6 +74,8 @@ namespace AgOpenGPS
                 Top = 0;
                 Left = 0;
             }
+            
+
         }
 
         private void btnJobNew_Click(object sender, EventArgs e)

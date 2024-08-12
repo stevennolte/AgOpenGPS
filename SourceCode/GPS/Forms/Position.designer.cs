@@ -1140,6 +1140,10 @@ namespace AgOpenGPS
             {
                 AddSectionOrPathPoints();
             }
+            if (sectionTriggerDistance > .5)
+            {
+                AddSectionOrPathPoints();
+            }
 
             //test if travelled far enough for new boundary point
             if (bnd.isOkToAddPoints)

@@ -1,6 +1,8 @@
 ﻿//Please, if you use this, share the improvements
 
 using AgOpenGPS;
+using AgOpenGPS.Classes;
+using AgOpenGPS.Forms;
 using AgOpenGPS.Properties;
 using OpenTK;
 using OpenTK.Graphics.OpenGL;
@@ -16,6 +18,7 @@ using System.Media;
 using System.Net.Sockets;
 using System.Reflection;
 using System.Resources;
+using System.Runtime.CompilerServices;
 using System.Windows.Forms;
 
 namespace AgOpenGPS
@@ -183,7 +186,7 @@ namespace AgOpenGPS
         /// Just the tool attachment that includes the sections
         /// </summary>
         public CTool tool;
-
+        public CHealth health;
         /// <summary>
         /// All the structs for recv and send of information out ports
         /// </summary>
@@ -238,7 +241,9 @@ namespace AgOpenGPS
         /// <summary>
         /// The new brightness code
         /// </summary>
+        // TODO: create health Class
 
+     
         private void panelRight_Paint(object sender, PaintEventArgs e)
         {
 
@@ -273,7 +278,7 @@ namespace AgOpenGPS
             vehicle = new CVehicle(this);
 
             tool = new CTool(this);
-
+            health = new CHealth(this);
             //create a new section and set left and right positions
             //created whether used or not, saves restarting program
 
@@ -347,7 +352,10 @@ namespace AgOpenGPS
 
             //shape file object
             shape = new ShapeFile(this);
+            
         }
+
+        
 
         private void FormGPS_Load(object sender, EventArgs e)
         {
@@ -542,6 +550,14 @@ namespace AgOpenGPS
         private void FormGPS_FormClosing(object sender, FormClosingEventArgs e)
         {
             Form f = Application.OpenForms["FormGPSData"];
+
+            if (f != null)
+            {
+                f.Focus();
+                f.Close();
+            }
+
+            f = Application.OpenForms["Form_Health"];
 
             if (f != null)
             {

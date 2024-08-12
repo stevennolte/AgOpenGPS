@@ -134,6 +134,7 @@
     <Compile Include="Classes\CBoundary.cs" />
     <Compile Include="Classes\CGuidance.cs" />
     <Compile Include="Classes\CHeadLine.cs" />
+    <Compile Include="Classes\CHealth.cs" />
     <Compile Include="Classes\CRecordedPath.cs" />
     <Compile Include="Classes\CPatches.cs" />
     <Compile Include="Classes\CSettings.cs" />
@@ -180,6 +181,18 @@
     </Compile>
     <Compile Include="Forms\Field\FormBndTool.Designer.cs">
       <DependentUpon>FormBndTool.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormDataLogger.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormDataLogger.Designer.cs">
+      <DependentUpon>FormDataLogger.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_Health.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_Health.Designer.cs">
+      <DependentUpon>Form_Health.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\FormRateMap.cs">
       <SubType>Form</SubType>
@@ -684,6 +697,9 @@
     <EmbeddedResource Include="Forms\FormYes.resx">
       <DependentUpon>FormYes.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_Health.resx">
+      <DependentUpon>Form_Health.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Guidance\FormGrid.resx">
       <DependentUpon>FormGrid.cs</DependentUpon>
     </EmbeddedResource>
@@ -954,6 +970,7 @@
   <ItemGroup>
     <Content Include="AOG.ico" />
     <Content Include="aChangeLog.txt" />
+    <None Include="Resources\Warning.png" />
     <None Include="btnImages\AntennaLeftOffset.png" />
     <None Include="btnImages\AntennaRightOffset.png" />
     <None Include="btnImages\AntennaNoOffset.png" />
@@ -965,6 +982,11 @@
     <None Include="btnImages\Config\ConD_LogElevation.png" />
     <None Include="btnImages\Config\ConT_TramOverrideDisplay.png" />
     <None Include="btnImages\GridRotate.png" />
+    <None Include="Resources\health_icon.png" />
+    <None Include="Resources\health_icon1.png" />
+    <None Include="Resources\Green_Check.png" />
+    <None Include="Resources\Green_Check1.png" />
+    <None Include="Resources\Red_X.png" />
     <Content Include="Resources\TF012.WAV" />
     <None Include="Resources\SectionOn.wav" />
     <None Include="Resources\SectionOff.wav" />
