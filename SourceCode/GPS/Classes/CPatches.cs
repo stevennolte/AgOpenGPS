@@ -25,7 +25,7 @@ namespace AgOpenGPS
         public int numTriangles = 0;
         public int currentStartSectionNum, currentEndSectionNum;
         public int newStartSectionNum, newEndSectionNum;
-
+        public double prevspeedpixel = 0;
         //simple constructor, position is set in GPSWinForm_Load in FormGPS when creating new object
         public CPatches(FormGPS _f)
         {
@@ -52,12 +52,12 @@ namespace AgOpenGPS
 
                 if (!mf.tool.isMultiColoredSections)
                 {
-                    triangleList.Add(new vec3(mf.sectionColorDay.R, mf.sectionColorDay.G, mf.sectionColorDay.B));
+                    triangleList.Add(new vec3(mf.section[j].speedPixels * 3, 0, 0));
                 }
                 else
                 {
-                    if (mf.tool.isSectionsNotZones)
-                        triangleList.Add(new vec3(mf.tool.secColors[j].R, mf.tool.secColors[j].G, mf.tool.secColors[j].B));
+                    if (!mf.tool.isSectionsNotZones)
+                        triangleList.Add(new vec3(mf.section[j].speedPixels * 3, 0, 0));
                     else
                         triangleList.Add(new vec3(mf.sectionColorDay.R, mf.sectionColorDay.G, mf.sectionColorDay.B));
                 }
@@ -134,9 +134,14 @@ namespace AgOpenGPS
                     mf.fd.workedAreaTotalUser += temp;
                 }
             }
-
-            if (numTriangles > 61)
+            double speedsum = 0;
+            for (int i = 0; i < mf.tool.numOfSections; i++)
             {
+                speedsum = speedsum + mf.section[i].speedPixels;
+            }
+            if (numTriangles > 10 || speedsum != prevspeedpixel)
+            {
+                prevspeedpixel = speedsum;
                 numTriangles = 0;
 
                 //save the cutoff patch to be saved later
@@ -148,7 +153,7 @@ namespace AgOpenGPS
 
                 //Add Patch colour
                 if (!mf.tool.isMultiColoredSections)
-                    triangleList.Add(new vec3(mf.sectionColorDay.R, mf.sectionColorDay.G, mf.sectionColorDay.B));
+                    triangleList.Add(new vec3(mf.section[j].speedPixels*3, 0, 0));
                 else
                     triangleList.Add(new vec3(mf.tool.secColors[j].R, mf.tool.secColors[j].G, mf.tool.secColors[j].B));
 

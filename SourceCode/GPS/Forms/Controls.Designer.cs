@@ -18,6 +18,7 @@ namespace AgOpenGPS
 {
     public partial class FormGPS
     {
+        public bool logData = false;
         #region Right Menu
         public bool isABCyled = false;
         private void btnContour_Click(object sender, EventArgs e)
@@ -452,6 +453,16 @@ namespace AgOpenGPS
 
             f = null;
             f = Application.OpenForms["FormFieldData"];
+
+            if (f != null)
+            {
+                f.Focus();
+                f.Close();
+            }
+
+            f = null;
+
+            f = Application.OpenForms["Form_Health"];
 
             if (f != null)
             {
@@ -1047,6 +1058,34 @@ namespace AgOpenGPS
         #endregion
 
         #region Top Panel
+
+        /// <summary>
+        /// Health Page
+        /// </summary>
+        //TODO: Health Page sizing needs corrected
+        
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Form f = Application.OpenForms["Form_Health"];
+
+            if (f != null)
+            {
+                f.Focus();
+                f.Close();
+            }
+            else
+            {
+                Form form = new Form_Health(this);
+                form.Show(this);
+                form.Top = this.Top + oglMain.Top;
+                //form.Left = this.Left + oglMain.Width/2-form.Width/2;
+                form.Left = this.Left + 80;
+            }
+            
+            Form ff = Application.OpenForms["FormGPS"];
+            ff.Focus();
+        }
+
         private void btnFieldStats_Click(object sender, EventArgs e)
         {
             Form f = Application.OpenForms["FormGPSData"];
@@ -1584,6 +1623,14 @@ namespace AgOpenGPS
                 fc.Focus();
                 fc.Close();
             }
+            fc = null;
+            fc = Application.OpenForms["Form_Health"];
+
+            if (fc != null)
+            {
+                fc.Focus();
+                fc.Close();
+            }
 
             fc = Application.OpenForms["FormSteerGraph"];
 
@@ -1600,6 +1647,8 @@ namespace AgOpenGPS
                 fc.Focus();
                 fc.Close();
             }
+
+            
 
         }
 

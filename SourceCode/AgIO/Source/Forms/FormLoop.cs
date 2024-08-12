@@ -447,7 +447,42 @@ namespace AgIO
                 }
             }
         }
+        private void aioHealth()
+        {
+            
+            byte[] aioHealth = new byte[] { 0x80, 0x81, 0x60, 149, 5, 4, 0, 0, 0, 0 };
+            byte imuHealth = 6;
+            byte gpsHealth = 7;
+            byte steerHealth = 8;
 
+            if (lastHelloIMU)
+            {
+                aioHealth[imuHealth] = 1;
+            } else
+            {
+                aioHealth[imuHealth] = 2;
+            }
+            if (lastHelloAutoSteer)
+            {
+                aioHealth[steerHealth] = 1;
+            }
+            else
+            {
+                aioHealth[steerHealth] = 2;
+            }
+            if (lastHelloGPS)
+            {
+                aioHealth[gpsHealth] = 1;
+            }
+            else
+            {
+                aioHealth[gpsHealth] = 2;
+            }
+
+
+            SendToLoopBackMessageAOG(aioHealth);
+            
+        }
         private void TwoSecondLoop()
         {
             //Hello Alarm logic
@@ -463,7 +498,8 @@ namespace AgIO
 
             //send a hello to modules
             SendUDPMessage(helloFromAgIO, epModule);
-
+            aioHealth();
+            
 
             //if (isLogNMEA)
             //{
@@ -480,6 +516,7 @@ namespace AgIO
 
         private void TenSecondLoop()
         {
+            
             if (focusSkipCounter != 0 && WindowState == FormWindowState.Minimized)
             {
                 focusSkipCounter = 0;

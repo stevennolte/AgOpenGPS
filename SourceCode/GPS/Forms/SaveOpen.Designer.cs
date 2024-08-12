@@ -9,6 +9,7 @@ using System.IO;
 using System.Globalization;
 using System.Xml;
 using System.Text;
+using AgOpenGPS.Forms;
 
 namespace AgOpenGPS
 {
@@ -1961,8 +1962,35 @@ namespace AgOpenGPS
                 writer.WriteLine("StartFix");
                 writer.WriteLine(pn.latitude.ToString(CultureInfo.InvariantCulture) + "," + pn.longitude.ToString(CultureInfo.InvariantCulture));
             }
+            launchlogger();
+
+           
         }
 
+        public void launchlogger()
+        {
+            #region LaunchDataLogger
+
+            //check if window already exists
+            Form fc = Application.OpenForms["FormDataLogger"];
+
+            if (fc != null)
+            {
+                fc.Focus();
+                fc.Close();
+
+                return;
+            }
+
+            //
+            Form form = new FormDataLogger(this);
+            //form.Top = 0;
+            //form.Left = 0;
+            form.Show(this);
+
+
+            #endregion
+        }
         public void FileCreateElevation()
         {
             //Saturday, February 11, 2017  -->  7:26:52 AM

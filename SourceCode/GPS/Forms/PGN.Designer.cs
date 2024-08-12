@@ -444,7 +444,16 @@ namespace AgOpenGPS
             //public int  = 12;
         }
 
+        #region MyStuff
 
+        public class CPGN_XX 
+        {
+            public byte[] pgn = new byte[] { 0x80, 0x81, 0x7f };
+            public int rate0 = 5;
+        }
+
+
+        #endregion
 
 
         //pgn instances
