@@ -88,9 +88,28 @@ namespace AgOpenGPS
 
         public List<int> buttonOrder = new List<int>();
 
+        private PerformanceCounter cpuCounter;
+        private PerformanceCounter diskCounter;
+
+
         //Timer triggers at 125 msec
         private void tmrWatchdog_tick(object sender, EventArgs e)
         {
+            // Get CPU usage
+            float cpuUsage = cpuCounter.NextValue();
+
+            // Get memory usage
+            var memoryUsage = GetMemoryUsage();
+
+            // Get disk usage
+            float diskUsage = diskCounter.NextValue();
+
+            // Display the values in labels or any UI element
+            //Debug.WriteLine($"CPU Usage: {cpuUsage:F2}%");
+            //Debug.WriteLine($"Memory Usage: {memoryUsage:F2} MB");
+            //Debug.WriteLine($"Disk Usage: {diskUsage:F2}%");
+            labelCPU.Text = $"{cpuUsage: 0}";
+            labelMemory.Text = $"{memoryUsage: 0}";
             //Check for a newline char, if none then just return
             if (++sentenceCounter > 20)
             {
@@ -765,8 +784,21 @@ namespace AgOpenGPS
             SetZoom();
 
             lblGuidanceLine.BringToFront();
+
+            // CPU Usage
+            cpuCounter = new PerformanceCounter("Processor", "% Processor Time", "_Total");
+
+            // Disk Usage (Percentage of time disk is active)
+            diskCounter = new PerformanceCounter("PhysicalDisk", "% Disk Time", "_Total");
+
         }
 
+        private float GetMemoryUsage()
+        {
+            // Get current process memory usage
+            Process currentProcess = Process.GetCurrentProcess();
+            return currentProcess.PrivateMemorySize64 / (1024 * 1024); // Convert from bytes to MB
+        }
         public void PanelUpdateRightAndBottom()
         {
             if (isJobStarted)
@@ -967,7 +999,7 @@ namespace AgOpenGPS
 
                 oglMain.Left = 80;
                 oglMain.Width = this.Width - statusStripLeft.Width - 22; //22
-                oglMain.Height = this.Height - 60;
+                oglMain.Height = this.Height - 80;
             }
             else
             {
@@ -984,12 +1016,16 @@ namespace AgOpenGPS
                     panelBottom.Visible = true;
                     panelRight.Visible = true;
                     panelLeft.Visible = true;
+                    //TODO: add the bool objects for forms here
                     oglMain.Left = 80;
                     oglMain.Width = this.Width - statusStripLeft.Width - 92; //22
                     oglMain.Height = this.Height - 118;
                 }
             }
-
+            if (isFormImpOpen)
+            {
+                oglMain.Width = oglMain.Width - 200;
+            }
             PanelSizeRightAndBottom();
 
             if (tool.isSectionsNotZones)

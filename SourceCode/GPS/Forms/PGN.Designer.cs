@@ -452,7 +452,43 @@ namespace AgOpenGPS
             public int rate0 = 5;
         }
 
+        public class CPGN_9506
+        {
+            public byte[] pgn = new byte[] { 0x80, 0x81, 0x7f, 0x95, 0x10, 0x06, 0x00, 0x00, 0x00, 0x00 };
+            public int myPGN = 5;
+            public byte ipAddr = 6;
+            public int portLowByte = 7;
+            public int portHighByte = 8;
+        }
 
+        public class CPGN_959A
+        {
+            public byte[] pgn = new byte[] { 0x80, 0x81, 0x7f, 0x95, 24, 0x9A,
+                                        0, 0, 0, 0, 0, 0, 0, 0,
+                                        0, 0, 0, 0, 0, 0, 0, 0,
+                                        0, 0, 0, 0, 0, 0, 0, 0,
+                                        0, 0, 0, 0, 0, 0, 0, 0,
+                                        0, 0, 0, 0, 0, 0, 0, 0,
+                                        0, 0, 0, 0, 0, 0, 0, 0,
+                                        0, 0, 0, 0, 0, 0, 0, 0,
+                                        0, 0, 0, 0, 0, 0, 0, 0,
+                                        0, 0, 0, 0, 0, 0, 0, 0,
+                                        0, 0, 0, 0, 0, 0, 0, 0,
+                                        0, 0, 0, 0, 0, 0, 0, 0,
+                                        0, 0, 0, 0, 0, 0, 0, 0,
+                                        0, 0, 0, 0, 0, 0, 0, 0,
+                                        0, 0, 0, 0, 0, 0, 0, 0,
+                                        0, 0, 0, 0, 0, 0, 0, 0,
+                                        0, 0, 0, 0, 0, 0, 0, 0,
+                                        0, 0, 0, 0, 0, 0, 0, 0,
+                                        0, 0, 0, 0, 0, 0, 0, 0, 0xCC };
+
+        }
+        
+        public class CPGN_9505
+        {
+            public byte[] pgn = new byte[] { 0x80, 0x81, 0x7f, 0x95, 0x10, 5, 0x01, 0x00, 0x00, 0x00};
+        }
         #endregion
 
 
@@ -461,6 +497,10 @@ namespace AgOpenGPS
         /// <summary>
         /// autoSteerData - FE - 254 - 
         /// </summary>
+        public CPGN_9506 p_9506 = new CPGN_9506();
+        public CPGN_959A p_959A = new CPGN_959A();
+        public CPGN_9505 p_9505 = new CPGN_9505();
+        
         public CPGN_FE p_254 = new CPGN_FE();
 
         /// <summary>

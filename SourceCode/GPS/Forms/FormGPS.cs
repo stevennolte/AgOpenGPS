@@ -64,7 +64,7 @@ namespace AgOpenGPS
 
         //bool for whether or not a job is active
         public bool isJobStarted = false, isBtnAutoSteerOn, isLidarBtnOn = true;
-
+        public bool isFormImpOpen;
         //if we are saving a file
         public bool isSavingFile = false, isLogNMEA = false;
 
@@ -186,7 +186,13 @@ namespace AgOpenGPS
         /// Just the tool attachment that includes the sections
         /// </summary>
         public CTool tool;
+        #region Mystuff
         public CHealth health;
+        public CPowerMonitor powerMonitor;
+        public CMapColor mapColor;
+        public CRemote remote;
+        public CDataLogger dataLogger;
+        #endregion
         /// <summary>
         /// All the structs for recv and send of information out ports
         /// </summary>
@@ -278,7 +284,13 @@ namespace AgOpenGPS
             vehicle = new CVehicle(this);
 
             tool = new CTool(this);
+            #region MyStuff
             health = new CHealth(this);
+            powerMonitor = new CPowerMonitor(this);
+            mapColor = new CMapColor(this);
+            remote = new CRemote(this);
+            dataLogger = new CDataLogger(this);
+            #endregion
             //create a new section and set left and right positions
             //created whether used or not, saves restarting program
 
@@ -313,7 +325,7 @@ namespace AgOpenGPS
 
             //module communication
             mc = new CModuleComm(this);
-
+            
             //boundary object
             bnd = new CBoundary(this);
 
@@ -549,6 +561,11 @@ namespace AgOpenGPS
 
         private void FormGPS_FormClosing(object sender, FormClosingEventArgs e)
         {
+            var forms = Application.OpenForms.Cast<Form>().ToList();
+            foreach (Form form in forms)
+            {
+                Debug.WriteLine(form.Name);
+            }
             Form f = Application.OpenForms["FormGPSData"];
 
             if (f != null)
@@ -564,7 +581,27 @@ namespace AgOpenGPS
                 f.Focus();
                 f.Close();
             }
+            f = Application.OpenForms["FormDataLogger"];
 
+            if (f != null)
+            {
+                f.Focus();
+                f.Close();
+            }
+            f = Application.OpenForms["FormImplement"];
+
+            if (f != null)
+            {
+                f.Focus();
+                f.Close();
+            }
+            f = Application.OpenForms["FormPowerMonitor"];
+
+            if (f != null)
+            {
+                f.Focus();
+                f.Close();
+            }
             f = Application.OpenForms["FormFieldData"];
 
             if (f != null)
@@ -683,6 +720,22 @@ namespace AgOpenGPS
                 f.Top = this.Top + 90;
                 f.Left = this.Left + 120;
             }
+            f = Application.OpenForms["FormImplement"];
+           
+            if (f != null)
+            {
+                f.Top = this.Top + oglMain.Top;
+                if (isJobStarted)
+                {
+                    f.Left = this.Right - f.Width - 80;
+                }
+                else if (!isJobStarted)
+                {
+                    f.Left = this.Right - f.Width - 10;
+                }
+                
+                f.Height = oglMain.Height;
+            }
         }
 
         // Return True if a certain percent of a rectangle is shown across the total screen area of all monitors, otherwise return False.
@@ -727,6 +780,23 @@ namespace AgOpenGPS
                 f.Top = this.Top + 75;
                 f.Left = this.Left + this.Width - 380;
             }
+            f = Application.OpenForms["FormImplement"];
+            if (f != null)
+            {
+                f.Top = this.Top + oglMain.Top;
+                if (isJobStarted)
+                {
+                    f.Left = this.Right - f.Width - 80;
+                }
+                else if (!isJobStarted)
+                {
+                    f.Left = this.Right - f.Width - 10;
+                }
+
+                f.Height = oglMain.Height;
+            }
+
+            // TODO: add in my forms to update on screen move
         }
 
         public void CheckSettingsNotNull()
@@ -934,6 +1004,25 @@ namespace AgOpenGPS
             lblGuidanceLine.Visible = false;
             btnAutoTrack.Image = Resources.AutoTrackOff;
             trk.isAutoTrack = false;
+
+            //Form form = new Form_Health(this);
+            
+            
+            Form ff = new FormImplement(this);
+            ff.Show(this);
+            ff.Top = this.Top + oglMain.Top;
+            ff.Width = 200;
+            if (isJobStarted)
+            {
+                ff.Left = this.Right - ff.Width - 80;
+            }
+            else if (!isJobStarted)
+            {
+                ff.Left = this.Right - ff.Width - 10;
+            }
+            ff.Height = oglMain.Height;
+            isFormImpOpen = true;
+            PanelsAndOGLSize();
         }
 
         //close the current job

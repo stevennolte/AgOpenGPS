@@ -45,6 +45,9 @@ namespace AgOpenGPS
         public int modeTime = 0;
 
         public double functionSpeedLimit;
+        public double massFlowrate = 0;
+        public double moisture = 0;
+        public double yeild = 0;
 
         public CVehicle(FormGPS _f)
         {

@@ -56,6 +56,15 @@ namespace AgOpenGPS
 
         public bool isDisplayTramControl;
 
+        #region MyStuff
+        public double targetRate;
+        public double targetFlowRate;
+        public double targetPressure;
+        public double activeWidth = 0;
+        public int implementIndex = 0;
+        #endregion
+
+
         //Constructor called by FormGPS
         public CTool(FormGPS _f)
         {
@@ -121,7 +130,47 @@ namespace AgOpenGPS
 
             isDisplayTramControl = Properties.Settings.Default.setTool_isDisplayTramControl;
         }
+        #region MyStuff
+        public void calculateFlowrate()
+        {
+            //Calculate total flowrate target
+            targetFlowRate = ((((mf.avgSpeed * 1000) / 60) * width) / 4046.856) * targetRate;
+            //Calculate flowrate for each section
+            double pixelSpeedSum = 0;
+            for (int i = 0; i < numOfSections; i++)
+            {
+                pixelSpeedSum += mf.section[i].speedPixels;
+            }
 
+
+            for (int i = 0; i < numOfSections; i++)
+            {
+                mf.section[i].speed = (mf.section[i].speedPixels / (pixelSpeedSum / mf.tool.numOfSections)) * mf.avgSpeed;
+                mf.section[i].targetRate = ((((mf.section[i].speed * 1000) / 60) * mf.section[i].sectionWidth) / 4046.856) * mf.tool.targetRate;
+            }
+        }
+
+        public void sendSectionCmds()
+        {
+            double a = 9791.7 * Math.Pow(mf.tool.targetPressure, -1.328);
+            double b = 26.395 * Math.Log(mf.tool.targetPressure) - 86.114;
+            double c = 43.646 * Math.Pow(mf.tool.targetPressure, -0.197);
+
+            for (int i = 0; i < mf.tool.numOfSections; i++)
+            {
+                if (mf.section[i].isSectionOn) { 
+                    mf.section[i].dutyTarget = Math.Min(8196 * ((a * Math.Pow(mf.section[i].targetRate, 2) + b * mf.section[i].targetRate + c) / 100), 8190);
+                } else { mf.section[i].dutyTarget = 0;}
+            }
+            for (int i = 0; i < mf.tool.numOfSections; i++)
+            {
+                mf.p_959A.pgn[i * 2 + 7] = unchecked((byte)((int)(mf.section[i].dutyTarget) >> 8));
+                mf.p_959A.pgn[(i * 2 + 8)] = unchecked((byte)((int)(mf.section[i].dutyTarget)));
+            }
+            mf.SendPgnToLoop(mf.p_959A.pgn);
+        }
+
+        #endregion
         public void DrawTool()
         {
             //translate and rotate at pivot axle

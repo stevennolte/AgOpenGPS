@@ -740,5 +740,29 @@
     <Setting Name="setWindow_isKioskMode" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
+    <Setting Name="impPanelSelection" Type="System.Byte" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="mapColorMax" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">15</Value>
+    </Setting>
+    <Setting Name="mapColorMin" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">1</Value>
+    </Setting>
+    <Setting Name="mapCenterVal" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">7</Value>
+    </Setting>
+    <Setting Name="mapStartColor" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">Red</Value>
+    </Setting>
+    <Setting Name="mapCenterColor" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">Lime</Value>
+    </Setting>
+    <Setting Name="mapEndColor" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">RoyalBlue</Value>
+    </Setting>
+    <Setting Name="mapColorField" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Speed</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

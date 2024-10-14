@@ -2,6 +2,8 @@
 
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.Drawing;
 
 namespace AgOpenGPS
 {
@@ -26,6 +28,10 @@ namespace AgOpenGPS
         public int currentStartSectionNum, currentEndSectionNum;
         public int newStartSectionNum, newEndSectionNum;
         public double prevspeedpixel = 0;
+        public double[] speedArray = new double[64];
+        public byte[] colorR = new byte[64];
+        public byte[] colorG = new byte[64];
+        public byte[] colorB = new byte[64];
         //simple constructor, position is set in GPSWinForm_Load in FormGPS when creating new object
         public CPatches(FormGPS _f)
         {
@@ -52,7 +58,7 @@ namespace AgOpenGPS
 
                 if (!mf.tool.isMultiColoredSections)
                 {
-                    triangleList.Add(new vec3(mf.section[j].speedPixels * 3, 0, 0));
+                    triangleList.Add(new vec3(mf.sectionColorDay.R, mf.sectionColorDay.G, mf.sectionColorDay.B));
                 }
                 else
                 {
@@ -134,14 +140,20 @@ namespace AgOpenGPS
                     mf.fd.workedAreaTotalUser += temp;
                 }
             }
-            double speedsum = 0;
-            for (int i = 0; i < mf.tool.numOfSections; i++)
+            
+            
+            bool doMapping = false;
+            if (mf.section[j].speedPixels > speedArray[j]*1.05 || mf.section[j].speedPixels < speedArray[j] * 0.95)
             {
-                speedsum = speedsum + mf.section[i].speedPixels;
+                colorR[j] = mf.mapColor.getMapColor(j).R;
+                colorG[j] = mf.mapColor.getMapColor(j).G;
+                colorB[j] = mf.mapColor.getMapColor(j).B;
+                doMapping = true;
             }
-            if (numTriangles > 10 || speedsum != prevspeedpixel)
+            if (numTriangles > 5 || doMapping)
             {
-                prevspeedpixel = speedsum;
+
+                speedArray[j] = mf.section[j].speedPixels;
                 numTriangles = 0;
 
                 //save the cutoff patch to be saved later
@@ -153,7 +165,10 @@ namespace AgOpenGPS
 
                 //Add Patch colour
                 if (!mf.tool.isMultiColoredSections)
-                    triangleList.Add(new vec3(mf.section[j].speedPixels*3, 0, 0));
+                {
+                    //triangleList.Add(new vec3(mf.sectionColorDay.R, mf.sectionColorDay.G, mf.sectionColorDay.B));
+                    triangleList.Add(new vec3(colorR[j], colorG[j], colorB[j]));
+                }
                 else
                     triangleList.Add(new vec3(mf.tool.secColors[j].R, mf.tool.secColors[j].G, mf.tool.secColors[j].B));
 

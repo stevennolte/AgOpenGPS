@@ -82,12 +82,19 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\References\Control.Draggable.dll</HintPath>
     </Reference>
+    <Reference Include="DarkUI, Version=2.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\DarkUI.2.0.2\lib\DarkUI.dll</HintPath>
+    </Reference>
     <Reference Include="Keypad, Version=5.2.3.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\References\Keypad.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.AnalysisServices.AppLocal, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.AnalysisServices.AppLocal.Tabular, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
     <Reference Include="Microsoft.Build.Framework" />
     <Reference Include="Microsoft.Build.Utilities.v4.0" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="OpenTK, Version=1.2.0.0, Culture=neutral, PublicKeyToken=bad199fe84eb3df4, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\References\OpenTK.dll</HintPath>
@@ -96,13 +103,20 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\References\OpenTK.GLControl.dll</HintPath>
     </Reference>
+    <Reference Include="ReaLTaiizor, Version=3.8.0.6, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ReaLTaiizor.3.8.0.6\lib\net48\ReaLTaiizor.dll</HintPath>
+    </Reference>
     <Reference Include="RepeatButtonControl, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\References\RepeatButtonControl.dll</HintPath>
     </Reference>
+    <Reference Include="SmoothProgressBar">
+      <HintPath>..\..\..\SmoothProgressBar\SmoothProgressBar\bin\Debug\SmoothProgressBar.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Design" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Management" />
     <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
@@ -122,6 +136,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\CBrightness.cs" />
+    <Compile Include="Classes\CDataLogger.cs" />
     <Compile Include="Classes\CExtensionMethods.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -132,12 +147,15 @@
       <DependentUpon>CBoundaryList.cs</DependentUpon>
     </Compile>
     <Compile Include="Classes\CBoundary.cs" />
+    <Compile Include="Classes\CFormPositions.cs" />
     <Compile Include="Classes\CGuidance.cs" />
     <Compile Include="Classes\CHeadLine.cs" />
     <Compile Include="Classes\CHealth.cs" />
+    <Compile Include="Classes\CMapColor.cs" />
     <Compile Include="Classes\CPowerMonitor.cs" />
     <Compile Include="Classes\CRecordedPath.cs" />
     <Compile Include="Classes\CPatches.cs" />
+    <Compile Include="Classes\CRemote.cs" />
     <Compile Include="Classes\CSettings.cs" />
     <Compile Include="Classes\CShapeFile.cs" />
     <Compile Include="Classes\CSound.cs" />
@@ -183,11 +201,29 @@
     <Compile Include="Forms\Field\FormBndTool.Designer.cs">
       <DependentUpon>FormBndTool.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FormShutdown.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormShutdown.Designer.cs">
+      <DependentUpon>FormShutdown.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FormDataLogger.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\FormDataLogger.Designer.cs">
       <DependentUpon>FormDataLogger.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormImplement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormImplement.Designer.cs">
+      <DependentUpon>FormImplement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormPowerMonitor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormPowerMonitor.Designer.cs">
+      <DependentUpon>FormPowerMonitor.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Form_Health.cs">
       <SubType>Form</SubType>
@@ -558,6 +594,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>gStr.no.resx</DependentUpon>
     </Compile>
+    <Compile Include="gStr.pt.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>gStr.pt.resx</DependentUpon>
+    </Compile>
     <Compile Include="gStr.tr.Designer.cs">
       <DependentUpon>gStr.tr.resx</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -675,6 +716,15 @@
     <EmbeddedResource Include="Forms\Field\FormBndTool.resx">
       <DependentUpon>FormBndTool.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormDataLogger.resx">
+      <DependentUpon>FormDataLogger.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormImplement.resx">
+      <DependentUpon>FormImplement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormPowerMonitor.resx">
+      <DependentUpon>FormPowerMonitor.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormRateMap.resx">
       <DependentUpon>FormRateMap.cs</DependentUpon>
     </EmbeddedResource>
@@ -694,6 +744,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormMap.resx">
       <DependentUpon>FormMap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormShutdown.resx">
+      <DependentUpon>FormShutdown.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormYes.resx">
       <DependentUpon>FormYes.cs</DependentUpon>
@@ -866,7 +919,10 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>gStr.no.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="gStr.pt.resx" />
+    <EmbeddedResource Include="gStr.pt.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>gStr.pt.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="gStr.tr.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>gStr.tr.Designer.cs</LastGenOutput>
@@ -971,6 +1027,11 @@
   <ItemGroup>
     <Content Include="AOG.ico" />
     <Content Include="aChangeLog.txt" />
+    <None Include="Resources\Update1.png" />
+    <None Include="Resources\Update.png" />
+    <None Include="Resources\Vertical_Bar_2.png" />
+    <None Include="Resources\Vertical_Step_Bar_negative.png" />
+    <None Include="Resources\Vertical_Step_Bar.png" />
     <None Include="Resources\Warning.png" />
     <None Include="btnImages\AntennaLeftOffset.png" />
     <None Include="btnImages\AntennaRightOffset.png" />
@@ -988,6 +1049,20 @@
     <None Include="Resources\Green_Check.png" />
     <None Include="Resources\Green_Check1.png" />
     <None Include="Resources\Red_X.png" />
+    <None Include="Resources\Row_Unit.png" />
+    <None Include="Resources\517501.png" />
+    <None Include="Resources\517501-2.png" />
+    <None Include="Resources\BF tank Rough.png" />
+    <None Include="Resources\Liquid1.png" />
+    <None Include="Resources\Bar.png" />
+    <None Include="Resources\Off_Check.png" />
+    <None Include="Resources\left-arrow.png" />
+    <None Include="Resources\right-arrow.png" />
+    <None Include="Resources\CANBUS_Off.png" />
+    <None Include="Resources\Power_Off.png" />
+    <None Include="Resources\GPS_Off.png" />
+    <None Include="Resources\Power_Active.png" />
+    <None Include="Resources\Area_Unselected.png" />
     <Content Include="Resources\TF012.WAV" />
     <None Include="Resources\SectionOn.wav" />
     <None Include="Resources\SectionOff.wav" />

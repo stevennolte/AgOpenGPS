@@ -1210,6 +1210,12 @@ namespace AgOpenGPS
             //send the byte out to section machines
             BuildMachineByte();
 
+            #region MyStuff
+            tool.calculateFlowrate();
+            tool.sendSectionCmds();
+            #endregion
+
+
             if (worldGrid.isRateTrigger && worldGrid.isRateMap)
             {
                 worldGrid.isRateTrigger = false;
@@ -1359,6 +1365,8 @@ namespace AgOpenGPS
 
             }
             //this is the end of the "frame". Now we wait for next NMEA sentence with a valid fix. 
+
+
         }
 
         private void DistanceToFieldOriginCheck()

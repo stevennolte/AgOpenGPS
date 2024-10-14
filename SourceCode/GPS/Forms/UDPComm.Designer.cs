@@ -23,14 +23,15 @@ namespace AgOpenGPS
         // Status delegate
         public int udpWatchCounts = 0;
         public int udpWatchLimit = 70;
+        public double yieldFilt = 0.9;
 
         private readonly Stopwatch udpWatch = new Stopwatch();
 
         private void ReceiveFromAgIO(byte[] data)
         {
-            if (data.Length > 4 && data[0] == 0x80 && data[1] == 0x81)
+            if (data[0] == 0x80 && data[1] == 0x81)
             {
-                int Length = Math.Max((data[4]) + 5, 5);
+                //int Length = Math.Max((data[4]) + 5, 5);
                 //if (data.Length > Length)
                 //{
                 //    byte CK_A = 0;
@@ -274,11 +275,26 @@ namespace AgOpenGPS
                     #region Mystuff
                     case 149:
                         {
+                            Debug.WriteLine(data[5]);
                             switch (data[5])
+                             
                             {
                                 case 1:  // Massflowrate and Moisture from Combine
                                     {
-
+                                        
+                                        vehicle.massFlowrate = (data[7]*256 + data[6])*0.01;
+                                        vehicle.moisture = (data[9]*256 + data[8])*0.01;
+                                        
+                                        for (int i = 0; i < tool.numOfSections; i++)
+                                        {
+                                            tool.activeWidth += section[i].sectionWidth;
+                                        }
+                                        vehicle.yeild =(((tool.activeWidth * avgSpeed * 0.2471)/60.0)/vehicle.massFlowrate);
+                                        double timeDelta = (DateTime.UtcNow - new DateTime(1970, 1, 1)).TotalSeconds - fd.lastMassMessage;
+                                        fd.totalMass = fd.totalMass + vehicle.massFlowrate * timeDelta;
+                                        fd.lastMassMessage = (DateTime.UtcNow - new DateTime(1970, 1, 1)).TotalSeconds;
+                                        fd.averageMoisture = fd.averageMoisture * (1 - 1 / fd.moistureCnt) + vehicle.moisture * (1 / fd.moistureCnt);
+                                        fd.moistureCnt++;
                                         break;
                                     }
                                 case 2:  // All CANBUS Data Stream
@@ -288,6 +304,7 @@ namespace AgOpenGPS
                                     }
                                 case 3:  // Shutdown PC
                                     {
+                                        Debug.WriteLine("Shutdown");
                                         break ;
                                     }
                                 case 4:  //AgIO Health
@@ -295,6 +312,41 @@ namespace AgOpenGPS
                                         health.imuState = data[6];
                                         health.gpsState = data[7];
                                         health.steerState = data[8];
+                                        break;
+                                    }
+                                case 5:
+                                    {
+                                        switch (data[2]) {
+                                            case 70:
+                                                { 
+                                                     
+
+
+                                                    mc.pm.lastMsgRecieved = (DateTime.UtcNow - new DateTime(1970, 1, 1)).TotalSeconds;
+                                                    mc.pm.version1 = data[6];
+                                                    mc.pm.version2 = data[7];
+                                                    mc.pm.version3 = data[8];
+                                                    mc.pm.keyPowerState = data[9];
+                                                    mc.pm.pcPowerState = data[10];
+                                                    mc.pm.isConnectedAOG = data[11];
+                                                    mc.pm.isConnectedCAN1 = data[12];
+                                                    mc.pm.isConnectedCAN2 = data[13];
+                                                    mc.pm.isConnectedISOvehicle = data[14];
+                                                    mc.pm.isConnectedISOimplement = data[15];
+                                                    mc.pm.isConnectedINA219 = data[16];
+                                                    mc.pm.checkKeyState();
+                                                    break;
+                                                }
+                                            case 52:
+                                                {
+
+                                                    break;
+                                                }
+                                        }
+                                    break;
+                                    }
+                                case 6:     //Update info
+                                    {
                                         break;
                                     }
                                 case 150:  // Fold Commands from Sprayer

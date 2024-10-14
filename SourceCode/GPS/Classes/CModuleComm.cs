@@ -1,9 +1,20 @@
-﻿namespace AgOpenGPS
+﻿using System.Windows.Forms;
+using System;
+using System.Timers;
+
+namespace AgOpenGPS
 {
     public class CModuleComm
     {
+        
+
         //copy of the mainform address
-        private readonly FormGPS mf;
+        public readonly FormGPS mf;
+
+        #region CreateModuleSubclasses
+        public AioModule aiom;
+        public PowerMonitor pm;
+        #endregion
 
         //Critical Safety Properties
         public bool isOutOfBounds = true;
@@ -34,16 +45,22 @@
             isWorkSwitchManualSections, isSteerWorkSwitchManualSections, isSteerWorkSwitchEnabled;
 
         public bool workSwitchHigh, oldWorkSwitchHigh, steerSwitchHigh, oldSteerSwitchHigh, oldSteerSwitchRemote;
+        
 
         //constructor
         public CModuleComm(FormGPS _f)
         {
             mf = _f;
+            #region Init Module Classes
+            aiom = new AioModule(mf);
+            pm = new PowerMonitor(mf);
+            #endregion
             //WorkSwitch logic
             isRemoteWorkSystemOn = false;
 
             //does a low, grounded out, mean on
             isWorkSwitchActiveLow = true;
+
         }
 
         //Called from "OpenGL.Designer.cs" when requied
@@ -114,6 +131,134 @@
                             mf.btnSectionMasterManual.PerformClick();
                     }
                 }
+            }
+        }
+
+        public class AioModule
+        {
+            private FormGPS mf;
+            public bool isConnected = false;
+            public byte health = 0;
+            public byte version1 = 0;
+            public byte version2 = 0;
+            public byte version3 = 0;
+            public double lastMsgRecieved = 0;
+            private bool isOpen = false;
+
+
+            public AioModule(FormGPS _mf)
+            {
+                mf = _mf;
+            }
+        }
+
+        public class PowerMonitor
+        {
+            private FormGPS mf;
+            public bool isConnected = false;
+            public byte ipAddr = 70;
+            public byte health = 0;
+            public byte version1 = 0;
+            public byte version2 = 0;
+            public byte version3 = 0;
+            public byte keyPowerState;
+            public byte pcPowerState;
+            public byte isConnectedAOG;
+            public byte isConnectedCAN1;
+            public byte isConnectedCAN2;
+            public byte isConnectedISOvehicle;
+            public byte isConnectedISOimplement;
+            public byte isConnectedINA219;
+            public double lastMsgRecieved = 0;
+            private bool isOpen = false;
+            private byte prevKeyState;
+            private System.Timers.Timer shutdownTimer;
+            private bool isDialogOpen = false;
+            public PowerMonitor(FormGPS _mf)
+            {
+                mf = _mf;
+            }
+
+            public bool checkConnection()
+            {
+                if ((DateTime.UtcNow - new DateTime(1970, 1, 1)).TotalSeconds - lastMsgRecieved < 1)
+                {
+                    if (isConnectedINA219 == 1 & isConnectedCAN1 == 1)
+                    {
+                        health = 1;
+                    }
+                    else
+                    {
+                        health = 2;
+                    }
+                    return true;
+                }
+                else
+                {
+                    health = 0;
+                    return false;
+                }
+
+            }
+            public void checkKeyState()
+            {
+                if (keyPowerState == 2 && prevKeyState == 1 && !isOpen)
+                {
+                    isOpen = true;
+                    isDialogOpen = true;
+
+                    // Start the timer (e.g., 10 seconds = 10000 milliseconds)
+                    shutdownTimer = new System.Timers.Timer(10000); // 10 second delay
+                    shutdownTimer.Elapsed += OnTimedEvent;
+                    shutdownTimer.AutoReset = false; // Ensure it only triggers once
+                    shutdownTimer.Start();
+
+                    // Show the dialog
+                    DialogResult dr = MessageBox.Show("POWER DOWN?", "Want something else?", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Information);
+
+                    // Stop the timer if user made a choice
+                    if (isDialogOpen)
+                    {
+                        shutdownTimer.Stop();
+                    }
+
+                    if (dr == DialogResult.Yes)
+                    {
+                        mf.SendPgnToLoop(mf.p_9505.pgn);
+                        powerDown();
+                    }
+                    else if (dr == DialogResult.Cancel)
+                    {
+                        // Handle cancel if needed
+                    }
+
+                    isDialogOpen = false;
+                }
+
+                prevKeyState = keyPowerState;
+            }
+            private void OnTimedEvent(Object source, ElapsedEventArgs e)
+            {
+                if (isDialogOpen)
+                {
+                    // Simulate "Yes" button click if the timer elapses
+                    isDialogOpen = false; // Prevent further interaction
+                    mf.SendPgnToLoop(mf.p_9505.pgn);
+                    powerDown();
+                }
+            }
+            public void powerDown()
+            {
+                // TODO: add popup for shutdown confirmation or cancelation
+                int shutdownDelay = 10; // Example: 60 seconds delay
+
+                // Construct the shutdown command
+                string shutdownCommand = $"/s /t {shutdownDelay}";
+                System.Diagnostics.Process.Start("shutdown", shutdownCommand);
+
+                Console.WriteLine($"The PC will shut down in {shutdownDelay} seconds.");
+
+                mf.Close();
             }
         }
     }

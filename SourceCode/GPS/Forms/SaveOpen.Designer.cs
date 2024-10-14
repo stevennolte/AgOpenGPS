@@ -1915,6 +1915,7 @@ namespace AgOpenGPS
 
             //update field data
             oglZoom.Refresh();
+            launchlogger();
 
         }//end of open file
 
@@ -1986,7 +1987,9 @@ namespace AgOpenGPS
             Form form = new FormDataLogger(this);
             //form.Top = 0;
             //form.Left = 0;
+            
             form.Show(this);
+            form.Hide();
 
 
             #endregion
@@ -3050,6 +3053,17 @@ namespace AgOpenGPS
 
                             kml.WriteEndElement(); // <LinearRing>
                             kml.WriteEndElement(); // <outerBoundaryIs>
+                            #region MyStuff
+
+                            kml.WriteStartElement("ExtendedData");
+                            kml.WriteStartElement("Data", Name="speed");
+                            kml.WriteElementString("value", 0.0.ToString());
+                            kml.WriteEndElement();
+                            kml.WriteEndElement();
+
+                            #endregion
+
+
                             kml.WriteEndElement(); // <Polygon>
 
                             kml.WriteEndElement(); // <Placemark>

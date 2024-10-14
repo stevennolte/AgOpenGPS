@@ -8,6 +8,7 @@ using System.Drawing;
 using System.Globalization;
 using System.IO;
 using System.Linq;
+using System.Reflection.Emit;
 using System.Windows.Forms;
 using AgOpenGPS.Forms;
 using AgOpenGPS.Forms.Pickers;
@@ -19,8 +20,10 @@ namespace AgOpenGPS
     public partial class FormGPS
     {
         public bool logData = false;
+        
         #region Right Menu
         public bool isABCyled = false;
+
         private void btnContour_Click(object sender, EventArgs e)
         {
             trk.isAutoTrack = false;
@@ -469,8 +472,15 @@ namespace AgOpenGPS
                 f.Focus();
                 f.Close();
             }
+            f = Application.OpenForms["FormDataLogger"];
 
+            if (f != null)
+            {
+                f.Focus();
+                f.Close();
+            }
             f = null;
+
             f = Application.OpenForms["FormPan"];
 
             if (f != null)
@@ -1064,9 +1074,87 @@ namespace AgOpenGPS
         /// </summary>
         //TODO: Health Page sizing needs corrected
         
+
+
+
+        public void showPowerMonitor()
+        {
+            foreach (Form frm in Application.OpenForms)
+            {
+                Debug.WriteLine(frm.Name);
+            }
+            Form f = Application.OpenForms["FormPowerMonitor"];
+            
+            if (f != null)
+            {
+                f.Focus();
+                f.Close();
+            }
+            else
+            {
+                Form form = new FormPowerMonitor(this);
+                form.Show(this);
+                form.Top = this.Top + oglMain.Top+80;
+                //form.Left = this.Left + oglMain.Width/2-form.Width/2;
+                form.Left = this.Left + 80;
+            }
+            
+            
+
+
+        }
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Form f = Application.OpenForms["FormImplement"];
+            
+            if (f != null)
+            {
+                f.Focus();
+                if (f.Visible == false)
+                {
+                    f.Show();
+                    isFormImpOpen = true;
+                } else
+                {
+                    f.Hide();
+                    isFormImpOpen = false;
+                }
+                //f.Close();
+                
+                PanelsAndOGLSize();
+            }
+            else
+            {
+                //Form form = new Form_Health(this);
+                Form form = Application.OpenForms["FormImplement"];
+                if (form == null)
+                {
+                    form = new FormImplement(this);
+                }
+                form.Show(this);
+                form.Top = this.Top + oglMain.Top;
+                form.Width = 200;
+                if (isJobStarted)
+                {
+                    form.Left = this.Right - form.Width - 80;
+                } else if (!isJobStarted)
+                {
+                    form.Left = this.Right - form.Width-10;
+                }
+                
+                form.Height = oglMain.Height;
+                isFormImpOpen = true;
+                PanelsAndOGLSize();
+            }
+            
+
+            Form ff = Application.OpenForms["FormGPS"];
+            ff.Focus();
+        }
         private void button2_Click(object sender, EventArgs e)
         {
             Form f = Application.OpenForms["Form_Health"];
+            //Form f = Application.OpenForms["FormImplement"];
 
             if (f != null)
             {
@@ -1076,9 +1164,9 @@ namespace AgOpenGPS
             else
             {
                 Form form = new Form_Health(this);
+                //Form form = new FormImplement();
                 form.Show(this);
                 form.Top = this.Top + oglMain.Top;
-                //form.Left = this.Left + oglMain.Width/2-form.Width/2;
                 form.Left = this.Left + 80;
             }
             
@@ -1633,6 +1721,27 @@ namespace AgOpenGPS
             }
             fc = null;
             fc = Application.OpenForms["Form_Health"];
+
+            if (fc != null)
+            {
+                fc.Focus();
+                fc.Close();
+            }
+            fc = Application.OpenForms["FormDataLogger"];
+
+            if (fc != null)
+            {
+                fc.Focus();
+                fc.Close();
+            }
+            fc = Application.OpenForms["FormImplement"];
+
+            if (fc != null)
+            {
+                fc.Focus();
+                fc.Close();
+            }
+            fc = Application.OpenForms["FormPowerMonitor"];
 
             if (fc != null)
             {

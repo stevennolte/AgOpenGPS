@@ -33,6 +33,11 @@ namespace AgOpenGPS
         //not really used - but if needed
         public double userSquareMetersAlarm;
 
+        public double totalMass;
+        public double averageMoisture;
+        public int moistureCnt = 1;
+        public double lastMassMessage;
+
         //Area inside Boundary less inside boundary areas
         public string AreaBoundaryLessInnersHectares=>(areaBoundaryOuterLessInner * glm.m2ha).ToString("N2");
 

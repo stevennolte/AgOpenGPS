@@ -12,7 +12,7 @@ namespace AgOpenGPS.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "17.9.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "17.10.0.0")]
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
@@ -2973,6 +2973,102 @@ namespace AgOpenGPS.Properties {
             }
             set {
                 this["setWindow_isKioskMode"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public byte impPanelSelection {
+            get {
+                return ((byte)(this["impPanelSelection"]));
+            }
+            set {
+                this["impPanelSelection"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("15")]
+        public double mapColorMax {
+            get {
+                return ((double)(this["mapColorMax"]));
+            }
+            set {
+                this["mapColorMax"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        public double mapColorMin {
+            get {
+                return ((double)(this["mapColorMin"]));
+            }
+            set {
+                this["mapColorMin"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("7")]
+        public double mapCenterVal {
+            get {
+                return ((double)(this["mapCenterVal"]));
+            }
+            set {
+                this["mapCenterVal"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Red")]
+        public global::System.Drawing.Color mapStartColor {
+            get {
+                return ((global::System.Drawing.Color)(this["mapStartColor"]));
+            }
+            set {
+                this["mapStartColor"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Lime")]
+        public global::System.Drawing.Color mapCenterColor {
+            get {
+                return ((global::System.Drawing.Color)(this["mapCenterColor"]));
+            }
+            set {
+                this["mapCenterColor"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("RoyalBlue")]
+        public global::System.Drawing.Color mapEndColor {
+            get {
+                return ((global::System.Drawing.Color)(this["mapEndColor"]));
+            }
+            set {
+                this["mapEndColor"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Speed")]
+        public string mapColorField {
+            get {
+                return ((string)(this["mapColorField"]));
+            }
+            set {
+                this["mapColorField"] = value;
             }
         }
     }
